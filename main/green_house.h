@@ -77,7 +77,7 @@ struct DRIP_INFO
 {
     bool state;                                                 /* ON or OFF. */
     int duration;                       /* Water on time duration in seconds. */
-    int on_time;              /* Time drip turns on (seconds since midnight). */
+    int start_time;           /* Time drip turns on (seconds since midnight). */
 };
 
 struct GREEN_HOUSE_INFO
@@ -87,15 +87,15 @@ struct GREEN_HOUSE_INFO
     bool fanState[FANS];
     bool ventState;
     struct DRIP_INFO dripInfo[DRIP_SYS];
-    int8_t fanTempOn;
-    int8_t ventTempOpen;
-    int8_t ventTempClose;
+    int fanTempOn;
+    int fanTempOff;
     int sntpSec;
     int sntpMin;
     int sntpHour;
     int sec;
     int min;
     int hour;
+    bool timeIsValid;
 };
 
 /******************************************************************************/

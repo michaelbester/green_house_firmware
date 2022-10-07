@@ -115,7 +115,6 @@ static esp_err_t mqtt_event_handler_cb(esp_mqtt_event_handle_t event)
 {
     client = event->client;
     int msg_id;
-    int8_t result;
     char result_string[16] = {0};
 
     switch (event->event_id) 
@@ -129,7 +128,6 @@ static esp_err_t mqtt_event_handler_cb(esp_mqtt_event_handle_t event)
 
             msg_id = esp_mqtt_client_subscribe(client, GREEN_HOUSE_HUMIDITY_REQUEST_TOPIC, 0);
             ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
-
 
             msg_id = esp_mqtt_client_subscribe(client, GREEN_HOUSE_HUMIDITY_HISTORY_REQUEST_TOPIC, 0);
             ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
@@ -157,10 +155,16 @@ static esp_err_t mqtt_event_handler_cb(esp_mqtt_event_handle_t event)
             msg_id = esp_mqtt_client_subscribe(client, GREEN_HOUSE_DRIP1_CTRL_TOPIC, 0);
             ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
 
-            msg_id = esp_mqtt_client_subscribe(client, GREEN_HOUSE_DRIP1_ON_TIME_TOPIC, 0);
+            msg_id = esp_mqtt_client_subscribe(client, GREEN_HOUSE_DRIP1_REQUEST_START_TIME_TOPIC, 0);
             ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
 
-            msg_id = esp_mqtt_client_subscribe(client, GREEN_HOUSE_DRIP1_DURATION_TOPIC, 0);
+            msg_id = esp_mqtt_client_subscribe(client, GREEN_HOUSE_DRIP1_SET_START_TIME_TOPIC, 0);
+            ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
+
+            msg_id = esp_mqtt_client_subscribe(client, GREEN_HOUSE_DRIP1_REQUEST_DURATION_TOPIC, 0);
+            ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
+
+            msg_id = esp_mqtt_client_subscribe(client, GREEN_HOUSE_DRIP1_SET_DURATION_TOPIC, 0);
             ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
 
             /*** DRIP #2 ***/
@@ -170,10 +174,16 @@ static esp_err_t mqtt_event_handler_cb(esp_mqtt_event_handle_t event)
             msg_id = esp_mqtt_client_subscribe(client, GREEN_HOUSE_DRIP2_CTRL_TOPIC, 0);
             ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
 
-            msg_id = esp_mqtt_client_subscribe(client, GREEN_HOUSE_DRIP2_ON_TIME_TOPIC, 0);
+            msg_id = esp_mqtt_client_subscribe(client, GREEN_HOUSE_DRIP2_REQUEST_START_TIME_TOPIC, 0);
             ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
 
-            msg_id = esp_mqtt_client_subscribe(client, GREEN_HOUSE_DRIP2_DURATION_TOPIC, 0);
+            msg_id = esp_mqtt_client_subscribe(client, GREEN_HOUSE_DRIP2_SET_START_TIME_TOPIC, 0);
+            ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
+
+            msg_id = esp_mqtt_client_subscribe(client, GREEN_HOUSE_DRIP2_REQUEST_DURATION_TOPIC, 0);
+            ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
+
+            msg_id = esp_mqtt_client_subscribe(client, GREEN_HOUSE_DRIP2_SET_DURATION_TOPIC, 0);
             ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
 
              /*** DRIP #3 ***/
@@ -183,13 +193,18 @@ static esp_err_t mqtt_event_handler_cb(esp_mqtt_event_handle_t event)
             msg_id = esp_mqtt_client_subscribe(client, GREEN_HOUSE_DRIP3_CTRL_TOPIC, 0);
             ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
 
-            msg_id = esp_mqtt_client_subscribe(client, GREEN_HOUSE_DRIP3_ON_TIME_TOPIC, 0);
+            msg_id = esp_mqtt_client_subscribe(client, GREEN_HOUSE_DRIP3_REQUEST_START_TIME_TOPIC, 0);
             ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
 
-            msg_id = esp_mqtt_client_subscribe(client, GREEN_HOUSE_DRIP3_DURATION_TOPIC, 0);
+            msg_id = esp_mqtt_client_subscribe(client, GREEN_HOUSE_DRIP3_SET_START_TIME_TOPIC, 0);
+            ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
+
+            msg_id = esp_mqtt_client_subscribe(client, GREEN_HOUSE_DRIP3_REQUEST_DURATION_TOPIC, 0);
+            ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
+
+            msg_id = esp_mqtt_client_subscribe(client, GREEN_HOUSE_DRIP3_SET_DURATION_TOPIC, 0);
             ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
 #if 0
-
             /*** GROW LIGHT ***/
             msg_id = esp_mqtt_client_subscribe(client, GREEN_HOUSE_GROWLIGHT_STATUS_TOPIC, 0);
             ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
@@ -197,7 +212,7 @@ static esp_err_t mqtt_event_handler_cb(esp_mqtt_event_handle_t event)
             msg_id = esp_mqtt_client_subscribe(client, GREEN_HOUSE_GROWLIGHT_CTRL_TOPIC, 0);
             ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
 
-            msg_id = esp_mqtt_client_subscribe(client, GREEN_HOUSE_GROWLIGHT_ON_TIME_TOPIC, 0);
+            msg_id = esp_mqtt_client_subscribe(client, GREEN_HOUSE_GROWLIGHT_START_TIME_TOPIC, 0);
             ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
 
             msg_id = esp_mqtt_client_subscribe(client, GREEN_HOUSE_GROWLIGHT_OFF_TIME_TOPIC, 0);
@@ -358,24 +373,98 @@ static esp_err_t mqtt_event_handler_cb(esp_mqtt_event_handle_t event)
                                         result_string, strlen(result_string), 0, 0);
             }
 
-            if(strstr(event->topic, GREEN_HOUSE_DRIP1_ON_TIME_TOPIC) != NULL)
+            if(strstr(event->topic, GREEN_HOUSE_DRIP1_REQUEST_START_TIME_TOPIC) != NULL)
             {
-                event->data[event->data_len] = 0x00;
-                Control_Drip_On_Time(1, event->data);
+                ESP_LOGI(TAG, "Drip #1 Start Time Requested.");
+                sprintf(result_string, "%s", Convert_Time_To_String(greenHouseInfo.dripInfo[0].start_time));
+
+                esp_mqtt_client_publish(client, GREEN_HOUSE_DRIP1_START_TIME_TOPIC, 
+                                        result_string, strlen(result_string), 0, 0);    
             }
 
-            if(strstr(event->topic, GREEN_HOUSE_DRIP2_ON_TIME_TOPIC) != NULL)
+            if(strstr(event->topic, GREEN_HOUSE_DRIP2_REQUEST_START_TIME_TOPIC) != NULL)
             {
-                event->data[event->data_len] = 0x00;
-                Control_Drip_On_Time(2, event->data);
+                ESP_LOGI(TAG, "Drip #2 Start Time Requested.");
+                sprintf(result_string, "%s", Convert_Time_To_String(greenHouseInfo.dripInfo[1].start_time));
+
+                esp_mqtt_client_publish(client, GREEN_HOUSE_DRIP2_START_TIME_TOPIC, 
+                                        result_string, strlen(result_string), 0, 0);    
             }
 
-            if(strstr(event->topic, GREEN_HOUSE_DRIP3_ON_TIME_TOPIC) != NULL)
+            if(strstr(event->topic, GREEN_HOUSE_DRIP3_REQUEST_START_TIME_TOPIC) != NULL)
             {
-                event->data[event->data_len] = 0x00;
-                Control_Drip_On_Time(3, event->data);
+                ESP_LOGI(TAG, "Drip #3 Start Time Requested.");
+                sprintf(result_string, "%s", Convert_Time_To_String(greenHouseInfo.dripInfo[2].start_time));
+
+                esp_mqtt_client_publish(client, GREEN_HOUSE_DRIP3_START_TIME_TOPIC, 
+                                        result_string, strlen(result_string), 0, 0);    
             }
 
+            if(strstr(event->topic, GREEN_HOUSE_DRIP1_SET_START_TIME_TOPIC) != NULL)
+            {
+                event->data[event->data_len] = 0x00;
+                Control_Drip_Start_Time(1, event->data);
+            }
+
+            if(strstr(event->topic, GREEN_HOUSE_DRIP2_SET_START_TIME_TOPIC) != NULL)
+            {
+                event->data[event->data_len] = 0x00;
+                Control_Drip_Start_Time(2, event->data);
+            }
+
+            if(strstr(event->topic, GREEN_HOUSE_DRIP3_SET_START_TIME_TOPIC) != NULL)
+            {
+                event->data[event->data_len] = 0x00;
+                Control_Drip_Start_Time(3, event->data);
+            }
+
+            if(strstr(event->topic, GREEN_HOUSE_DRIP1_REQUEST_DURATION_TOPIC) != NULL)
+            {
+                ESP_LOGI(TAG, "Drip #1 Duration Requested.");
+                sprintf(result_string, "%s", Convert_Time_To_Duration(greenHouseInfo.dripInfo[0].duration));
+
+                esp_mqtt_client_publish(client, GREEN_HOUSE_DRIP1_DURATION_TOPIC, 
+                                        result_string, strlen(result_string), 0, 0);    
+            }
+
+            if(strstr(event->topic, GREEN_HOUSE_DRIP2_REQUEST_DURATION_TOPIC) != NULL)
+            {
+                ESP_LOGI(TAG, "Drip #2 Duration Requested.");
+                sprintf(result_string, "%s", Convert_Time_To_Duration(greenHouseInfo.dripInfo[1].duration));
+
+                esp_mqtt_client_publish(client, GREEN_HOUSE_DRIP1_DURATION_TOPIC, 
+                                        result_string, strlen(result_string), 0, 0);    
+            }
+
+            if(strstr(event->topic, GREEN_HOUSE_DRIP3_REQUEST_DURATION_TOPIC) != NULL)
+            {
+                ESP_LOGI(TAG, "Drip #3 Duration Requested.");
+                sprintf(result_string, "%s", Convert_Time_To_Duration(greenHouseInfo.dripInfo[2].duration));
+
+                esp_mqtt_client_publish(client, GREEN_HOUSE_DRIP1_DURATION_TOPIC, 
+                                        result_string, strlen(result_string), 0, 0);    
+            }
+
+            if(strstr(event->topic, GREEN_HOUSE_DRIP1_SET_DURATION_TOPIC) != NULL)
+            {
+                ESP_LOGI(TAG, "Drip #1 Duration Set Command.");
+                event->data[event->data_len] = 0x00; 
+                Control_Drip_Duration_Time(0, event->data);
+            }
+
+            if(strstr(event->topic, GREEN_HOUSE_DRIP2_SET_DURATION_TOPIC) != NULL)
+            {
+                ESP_LOGI(TAG, "Drip #2 Duration Set Command.");
+                event->data[event->data_len] = 0x00; 
+                Control_Drip_Duration_Time(1, event->data);
+            }
+
+            if(strstr(event->topic, GREEN_HOUSE_DRIP3_SET_DURATION_TOPIC) != NULL)
+            {
+                ESP_LOGI(TAG, "Drip #3 Duration Set Command.");
+                event->data[event->data_len] = 0x00; 
+                Control_Drip_Duration_Time(2, event->data);
+            }
         break;
 
         case MQTT_EVENT_ERROR:
@@ -419,6 +508,60 @@ static void log_error_if_nonzero(const char * message, int error_code)
     {
         ESP_LOGE(TAG, "Last error %s: 0x%x", message, error_code);
     }
+}
+
+/******************************************************************************/
+/* Function:    char* Convert_Time_To_String(uint32_t rawTime)                */
+/*                                                                            */
+/* Inputs:      time:  Time in seconds since midnight.                        */
+/*                                                                            */
+/* Outputs:     None.                                                         */
+/*                                                                            */
+/* Description: This function converts time to string format.                 */
+/*                                                                            */
+/* Author:      Michael Bester                                                */
+/*                                                                            */
+/* Notes:                                                                     */
+/*                                                                            */
+/******************************************************************************/
+char* Convert_Time_To_String(uint32_t rawTime)   
+{
+    uint8_t hour, minute;
+    static char time_string[8];
+    uint32_t x;
+
+    hour = rawTime / 60;
+    minute = (rawTime - (hour * 60));
+    sprintf(time_string, "%02d:%02d", hour, minute);
+
+    return(time_string);
+}
+
+/******************************************************************************/
+/* Function:    char* Convert_Time_To_Duration(uint32_t rawTime)              */
+/*                                                                            */
+/* Inputs:      time:  Time in seconds.                                       */
+/*                                                                            */
+/* Outputs:     None.                                                         */
+/*                                                                            */
+/* Description: This function converts duration to string format.             */
+/*                                                                            */
+/* Author:      Michael Bester                                                */
+/*                                                                            */
+/* Notes:                                                                     */
+/*                                                                            */
+/******************************************************************************/
+char* Convert_Time_To_Duration(uint32_t rawTime)   
+{
+    static char duration_string[8];
+    uint8_t hour, minute;
+    uint32_t x;
+
+    hour = rawTime / 60;
+    minute = (rawTime - (hour * 60));
+    sprintf(duration_string, "%02d:%02d", hour, minute);
+
+    return(duration_string);
 }
 
 

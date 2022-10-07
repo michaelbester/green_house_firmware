@@ -104,26 +104,25 @@ void update_fan(void)
 void update_drip(uint8_t num)
 {
     static bool dripStatus[DRIP_SYS] = {OFF};
-    int currTimeInSec;
-    int offTimeInSec;
-    static int prevTimeInSec = 0;
+    int currTimeInMin;
+    int offTimeInMin;
+    static int prevTimeInMin = 0;
     static bool timeRollOver = false;
     
-    currTimeInSec = greenHouseInfo.sec + (greenHouseInfo.min * 60) +
-                    (greenHouseInfo.hour * 3600);
+    currTimeInMin = (greenHouseInfo.min +(greenHouseInfo.hour * 60));
     
-    offTimeInSec = greenHouseInfo.dripInfo[num].on_time + greenHouseInfo.dripInfo[num].duration;
-    offTimeInSec = offTimeInSec % (60*60*24);
+    offTimeInMin = greenHouseInfo.dripInfo[num].start_time + greenHouseInfo.dripInfo[num].duration;
+    offTimeInMin = offTimeInMin % (60*24);
 
-    if(currTimeInSec < prevTimeInSec)
+    if(currTimeInMin < prevTimeInMin)
     {
         timeRollOver = true;
     }
 
     if(dripStatus[num] == OFF)
     {
-        if((currTimeInSec >= greenHouseInfo.dripInfo[num].on_time) && 
-           (currTimeInSec < greenHouseInfo.dripInfo[num].on_time + 
+        if((currTimeInMin >= greenHouseInfo.dripInfo[num].start_time) && 
+           (currTimeInMin < greenHouseInfo.dripInfo[num].start_time + 
             greenHouseInfo.dripInfo[num].duration))
         {
             dripStatus[num] = ON;
@@ -132,9 +131,9 @@ void update_drip(uint8_t num)
             greenHouseInfo.dripInfo[num].state = ON;
         }
     }
-    else if(offTimeInSec < greenHouseInfo.dripInfo[num].on_time)
+    else if(offTimeInMin < greenHouseInfo.dripInfo[num].start_time)
     {
-        if((currTimeInSec >= offTimeInSec) && (timeRollOver == true))
+        if((currTimeInMin >= offTimeInMin) && (timeRollOver == true))
         {
             dripStatus[num] = OFF;
             Control_Drip(num+1,"Off");                      /* Turn off drip. */
@@ -143,7 +142,7 @@ void update_drip(uint8_t num)
     }
     else
     {
-        if(currTimeInSec >= offTimeInSec)
+        if(currTimeInMin >= offTimeInMin)
         {
             dripStatus[num] = OFF;
             Control_Drip(num+1,"Off");                      /* Turn off drip. */
@@ -151,7 +150,7 @@ void update_drip(uint8_t num)
         }
     }
 
-    prevTimeInSec = currTimeInSec;
+    prevTimeInMin = currTimeInMin;
 }
 
 /******************************************************************************/
@@ -174,20 +173,20 @@ void update_time(void)
     int mSecCount;
     int secCount;
     static int mSecLastSNTP;
-    static bool initSNTPTime = false;
-    bool result;
+    bool result = FAILED;
 
-    if(initSNTPTime == false)           /* Get internet time when first run. */
+    if(greenHouseInfo.timeIsValid  == false)      /* Get time when first run. */
     {
         result = sntp_get_time(); 
+
         if(result == PASSED)
         {
-            initSNTPTime = true;
             mSecLastSNTP = (xTaskGetTickCount() * portTICK_PERIOD_MS);
+            greenHouseInfo.timeIsValid = true;
         }   
         else
         {
-            initSNTPTime = false;
+            greenHouseInfo.timeIsValid = false;
         }
     }
 

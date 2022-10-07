@@ -27,7 +27,7 @@
 #include "nvs_flash.h"
 #include "green_house.h"
 #include "control.h"
-
+#include "nvs.h"
 /******************************************************************************/
 /*************************** Global Variables *********************************/
 /******************************************************************************/
@@ -245,7 +245,51 @@ void Control_Drip(uint8_t id, char* cmd)
 }
 
 /******************************************************************************/
-/* Function:    void Control_Drip_On_Time(uint8_t id, char *on_time)          */
+/* Function:    void Control_Drip_Start_Time(uint8_t id, char *on_time)       */
+/*                                                                            */
+/* Inputs:      id: Fan ID.                                                   */
+/*              on_time: pointer to time string.                              */
+/*                                                                            */
+/* Outputs:     None.                                                         */
+/*                                                                            */
+/* Description: This function controls the drip start time.                   */
+/*                                                                            */
+/* Author:      Michael Bester                                                */
+/*                                                                            */
+/* Notes:       command comes from mqtt message.                              */
+/*                                                                            */
+/******************************************************************************/
+void Control_Drip_Start_Time(uint8_t id, char *on_time)  
+{
+    char *colon_loc;
+    int hour, min;
+    char key[16] = {0};
+
+    colon_loc = strchr(on_time, ':');
+    hour = atoi(on_time);
+    min = atoi(++colon_loc);
+
+    ESP_LOGI(tag, "Drip #%d Start Time = %d:%d", id, hour, min);
+
+    hour *= 60;                          /* Convert to minutes from midnight. */
+
+    if(strstr(on_time, "PM"))
+    {
+        hour += (12 * 60);
+    }
+
+    greenHouseInfo.dripInfo[id-1].start_time = (hour + min);
+
+    ESP_LOGI(tag, "start time stored in minutes:  %d", 
+             greenHouseInfo.dripInfo[id-1].start_time);
+
+    sprintf(key, "DRIP_%d_START", id);
+
+    NVS_Write(key, greenHouseInfo.dripInfo[id-1].start_time);
+}
+
+/******************************************************************************/
+/* Function:    void Control_Drip_Duration_Time(uint8_t id, char *duration)   */
 /*                                                                            */
 /* Inputs:      id: Fan ID.                                                   */
 /*              on_time: pointer to time string.                              */
@@ -259,26 +303,16 @@ void Control_Drip(uint8_t id, char* cmd)
 /* Notes:       command comes from mqtt message.                              */
 /*                                                                            */
 /******************************************************************************/
-void Control_Drip_On_Time(uint8_t id, char *on_time)  
+void Control_Drip_Duration_Time(uint8_t id, char *duration) 
 {
-    char *colon_loc;
-    int hour, min;
-    
-    colon_loc = strchr(on_time, ':');
-    hour = atoi(on_time);
-    min = atoi(++colon_loc);
+    int duration_raw_val;
+    char key[16] = {0};
 
-    ESP_LOGI(tag, "Drip #%d On Time = %d:%d", id, hour, min);
+    duration_raw_val = atoi(duration);               /* Convert to raw value. */
 
-    hour *= (60 * 60);                      /* Convert to secs from midnight. */
-    min *= 60;
+    greenHouseInfo.dripInfo[id].duration = duration_raw_val;
 
-    if(strstr(on_time, "PM"))
-    {
-        hour += (12 * 60 * 60);
-    }
+    sprintf(key, "DRIP_%d_DUR", id);
 
-    greenHouseInfo.dripInfo[id-1].on_time = (hour + min);
-
-    ESP_LOGI(tag, "on time stored in seconds:  %d", greenHouseInfo.dripInfo[id-1].on_time);
+    NVS_Write(key, greenHouseInfo.dripInfo[id].duration);
 }

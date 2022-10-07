@@ -1,18 +1,18 @@
 /******************************************************************************/
 /* Project:     Green House                                       			  */
 /*                                                                            */
-/* FileName:    control.h       	                                          */
+/* FileName:    nvs.h       	                                              */
 /*                                                                            */
 /* Author:      Michael Bester                                                */
 /*                                                                            */
 /* Overview:    This module contains the function proto-types, global vars,   */
-/*              and definitions used in the control.c module.                 */
+/*              and definitions used in the nvs.c module.                     */
 /*                                                                            */
 /* Notes:                                                                     */
 /*                                                                            */
 /******************************************************************************/
-#ifndef _CONTROL_
-#define _CONTROL_
+#ifndef _NVS_
+#define _NVS_
 
 /******************************************************************************/
 /**************************** External Variables ******************************/
@@ -29,11 +29,9 @@
 /******************************************************************************/
 /******************************* Prototypes ***********************************/
 /******************************************************************************/
-void Control_Fan(uint8_t id, char* cmd);
-void Control_Fan_Set_Temp_On(char *cmd);
-void Control_Drip(uint8_t id, char* cmd);
-void Control_Drip_Start_Time(uint8_t id, char *on_time);
-void Control_Drip_Duration_Time(uint8_t id, char *duration);
+void NVS_Write(char* key, int32_t val);
+esp_err_t NVS_Read(char* key, int* val); 
+void NVS_Erase(char* key);
 
 #endif
 

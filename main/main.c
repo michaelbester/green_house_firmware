@@ -29,8 +29,6 @@
 #include "init.h"
 #include "update.h"
 #include "green_house.h"
-#include "driver/gpio.h"
-#include "control.h"
 
 /******************************************************************************/
 /*************************** Global Variables *********************************/
@@ -64,8 +62,6 @@ static void app_loop(void);
 /******************************************************************************/
 void app_main(void)
 {
-    nvs_flash_init();
-
     Init();
 
     esp_netif_init();
@@ -103,9 +99,13 @@ static void app_loop(void)
         Update_Humidity();                    /* Update humidity measurement. */
         update_time();                              /* Update the local time. */
         update_fan();                                     /* Control the fan. */ 
-        update_drip(0);                              /* Control drip systems. */
-        update_drip(1); 
-        update_drip(2); 
+
+        if(greenHouseInfo.timeIsValid) /* Run drip schedule if time is value. */
+        {
+            update_drip(0);                          /* Control drip systems. */
+            update_drip(1); 
+            update_drip(2); 
+        }
     }
 }
 

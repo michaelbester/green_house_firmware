@@ -22,9 +22,11 @@
 #include "freertos/semphr.h"
 #include "esp_log.h"
 #include "driver/gpio.h"
+#include "esp_log.h"
 #include "nvs_flash.h"
 #include "dht11.h"
 #include "green_house.h"
+#include "nvs.h"
 #include "init.h"
 
 /******************************************************************************/
@@ -39,6 +41,7 @@
 /**************************** Local Functions *********************************/
 /******************************************************************************/
 static void Init_GPIO(void);
+static void Init_Settings(void);
 
 /******************************************************************************/
 /* Function:    void Init(void)                                               */
@@ -57,6 +60,17 @@ static void Init_GPIO(void);
 void Init(void)
 {
 	uint8_t i;
+    esp_err_t err;
+
+    err = nvs_flash_init();
+
+    if (err == ESP_ERR_NVS_NO_FREE_PAGES || err == ESP_ERR_NVS_NEW_VERSION_FOUND) 
+	{
+        ESP_ERROR_CHECK(nvs_flash_erase());
+        err = nvs_flash_init();
+    }
+
+	ESP_ERROR_CHECK( err );
 
     Init_GPIO();                                          /* Initialize GPIO. */
 	DHT11_init(DHT11_CTRL_PIN);
@@ -64,16 +78,15 @@ void Init(void)
 	greenHouseInfo.fanState[0] = OFF;
 	greenHouseInfo.fanState[1] = OFF;
 	greenHouseInfo.ventState = OFF;
-	greenHouseInfo.fanTempOn = 95;
-	greenHouseInfo.ventTempClose = 80;
-	greenHouseInfo.ventTempOpen = 90;
 
 	for(i=0;i<DRIP_SYS;i++)
 	{
 		greenHouseInfo.dripInfo[i].state = OFF;
-		greenHouseInfo.dripInfo[i].on_time = (60*60*11) + (60*44);
-		greenHouseInfo.dripInfo[i].duration = (60*1);
 	}
+
+	greenHouseInfo.timeIsValid = false;
+
+	Init_Settings();							 /* Read settings from Flash. */
 }
 
 /******************************************************************************/
@@ -155,4 +168,96 @@ static void Init_GPIO(void)
 	gpio_set_level(DRIP2_OPEN_CTRL_PIN, 0);
 	gpio_set_level(DRIP3_CLOSE_CTRL_PIN, 0);
 	gpio_set_level(DRIP3_OPEN_CTRL_PIN, 0);
+}
+
+/******************************************************************************/
+/* Function:    static void Init_Settings(void)				                  */
+/*                                                                            */
+/* Inputs:      None.                                                         */
+/*                                                                            */
+/* Outputs:     None.		                                                  */
+/*                                                                            */
+/* Description: This function initializes the application settings.           */
+/*                                                                            */
+/* Author:      Michael Bester                                                */
+/*                                                                            */
+/* Notes:                                                                     */
+/*                                                                            */
+/******************************************************************************/
+static void Init_Settings(void)	
+{
+	esp_err_t err;
+
+	err = NVS_Read("FAN_TEMP_ON", &greenHouseInfo.fanTempOn);
+
+	if(err != ESP_OK)
+	{
+		NVS_Write("FAN_TEMP_ON", 95);
+		greenHouseInfo.fanTempOn = 95;
+	}
+
+	err = NVS_Read("FAN_TEMP_OFF", &greenHouseInfo.fanTempOn);
+
+	if(err != ESP_OK)
+	{
+		NVS_Write("FAN_TEMP_OFF", 90);
+		greenHouseInfo.fanTempOff = 90;
+	}
+
+	err = NVS_Read("DRIP_1_START", &greenHouseInfo.dripInfo[0].start_time);
+
+	if(err != ESP_OK)
+	{
+		NVS_Write("DRIP_1_START", (1*60*60));
+		greenHouseInfo.dripInfo[0].start_time = (1*60*60);
+	}
+
+	err = NVS_Read("DRIP_2_START", &greenHouseInfo.dripInfo[1].start_time);
+
+	if(err != ESP_OK)
+	{
+		NVS_Write("DRIP_2_START", (2*60*60));
+		greenHouseInfo.dripInfo[1].start_time = (2*60*60);
+	}
+
+	err = NVS_Read("DRIP_3_START", &greenHouseInfo.dripInfo[2].start_time);
+
+	if(err != ESP_OK)
+	{
+		NVS_Write("DRIP_3_START", (3*60*60));
+		greenHouseInfo.dripInfo[0].start_time = (3*60*60);
+	}
+
+	err = NVS_Read("DRIP_1_DUR", &greenHouseInfo.dripInfo[0].duration);
+
+	if(err != ESP_OK)
+	{
+		NVS_Write("DRIP_1_DUR", (5 * 60));
+		greenHouseInfo.dripInfo[0].start_time = (5 * 60);
+	}
+
+	err = NVS_Read("DRIP_2_DUR", &greenHouseInfo.dripInfo[1].duration);
+
+	if(err != ESP_OK)
+	{
+		NVS_Write("DRIP_2_DUR", (1*60*60));
+		greenHouseInfo.dripInfo[1].start_time = (5 * 60);
+	}
+
+	err = NVS_Read("DRIP_3_DUR", &greenHouseInfo.dripInfo[2].duration);
+
+	if(err != ESP_OK)
+	{
+		NVS_Write("DRIP_3_DUR", (3*60*60));
+		greenHouseInfo.dripInfo[2].start_time = (5 * 60);
+	}
+
+	ESP_LOGI("init", "DRIP 1 START TIME:  %d", greenHouseInfo.dripInfo[0].start_time);
+	ESP_LOGI("init", "DRIP 2 START TIME:  %d", greenHouseInfo.dripInfo[1].start_time);
+	ESP_LOGI("init", "DRIP 3 START TIME:  %d", greenHouseInfo.dripInfo[2].start_time);
+
+	ESP_LOGI("init", "DRIP 1 DURATION:  %d", greenHouseInfo.dripInfo[0].duration);
+	ESP_LOGI("init", "DRIP 2 DURATION:  %d", greenHouseInfo.dripInfo[1].duration);
+	ESP_LOGI("init", "DRIP 3 DURATION:  %d", greenHouseInfo.dripInfo[2].duration);
+
 }

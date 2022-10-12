@@ -316,3 +316,32 @@ void Control_Drip_Duration_Time(uint8_t id, char *duration)
 
     NVS_Write(key, greenHouseInfo.dripInfo[id].duration);
 }
+
+/******************************************************************************/
+/* Function:    void Control_Drip_Days(uint8_t id, char *days)                */
+/*                                                                            */
+/* Inputs:      id: Fan ID.                                                   */
+/*              on_time: pointer to days string.                              */
+/*                                                                            */
+/* Outputs:     None.                                                         */
+/*                                                                            */
+/* Description: This function controls the drip days enabled.                 */
+/*                                                                            */
+/* Author:      Michael Bester                                                */
+/*                                                                            */
+/* Notes:       command comes from mqtt message.                              */
+/*                                                                            */
+/******************************************************************************/
+void Control_Drip_Days(uint8_t id, char *days)   
+{
+    int days_raw_val;
+    char key[16] = {0};
+
+    days_raw_val = atoi(days);               /* Convert to raw value. */
+
+    greenHouseInfo.dripInfo[id+1].days = days_raw_val;
+
+    sprintf(key, "DRIP_%d_DAYS", id+1);
+
+    NVS_Write(key, greenHouseInfo.dripInfo[id].days);
+}

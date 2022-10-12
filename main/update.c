@@ -27,6 +27,7 @@
 #include "nvs_flash.h"
 #include "sntp.h"
 #include "green_house.h"
+#include "mqtt_client.h"
 #include "mqtt.h"
 #include "request.h"
 #include "control.h"
@@ -88,11 +89,11 @@ void update_fan(void)
 }
 
 /******************************************************************************/
-/* Function:    void update_drip(uint8_t num)                                 */
+/* Function:    bool update_drip(uint8_t num)                                 */
 /*                                                                            */
 /* Inputs:      num:  Drip system number to update.                           */
 /*                                                                            */
-/* Outputs:     None.                                                         */
+/* Outputs:     Change flag.                                                  */
 /*                                                                            */
 /* Description: This function updates the given drip system.                  */
 /*                                                                            */
@@ -101,13 +102,14 @@ void update_fan(void)
 /* Notes:                                                                     */
 /*                                                                            */
 /******************************************************************************/
-void update_drip(uint8_t num)
+bool update_drip(uint8_t num)
 {
     static bool dripStatus[DRIP_SYS] = {OFF};
     int currTimeInMin;
     int offTimeInMin;
     static int prevTimeInMin = 0;
     static bool timeRollOver = false;
+    bool result = false;
     
     currTimeInMin = (greenHouseInfo.min +(greenHouseInfo.hour * 60));
     
@@ -123,12 +125,13 @@ void update_drip(uint8_t num)
     {
         if((currTimeInMin >= greenHouseInfo.dripInfo[num].start_time) && 
            (currTimeInMin < greenHouseInfo.dripInfo[num].start_time + 
-            greenHouseInfo.dripInfo[num].duration))
+            greenHouseInfo.dripInfo[num].duration) && (greenHouseInfo.dripInfo[num].days & (1 <<greenHouseInfo.day)))
         {
             dripStatus[num] = ON;
             Control_Drip(num+1,"ON");                        /* Turn on drip. */    
             timeRollOver = false;
             greenHouseInfo.dripInfo[num].state = ON;
+            result = true;
         }
     }
     else if(offTimeInMin < greenHouseInfo.dripInfo[num].start_time)
@@ -138,19 +141,23 @@ void update_drip(uint8_t num)
             dripStatus[num] = OFF;
             Control_Drip(num+1,"Off");                      /* Turn off drip. */
             greenHouseInfo.dripInfo[num].state = OFF;
+            result = true;
         }
     }
     else
     {
-        if(currTimeInMin >= offTimeInMin)
+        if((currTimeInMin >= offTimeInMin))
         {
             dripStatus[num] = OFF;
             Control_Drip(num+1,"Off");                      /* Turn off drip. */
             greenHouseInfo.dripInfo[num].state = OFF;
+            result = true;
         }
     }
 
     prevTimeInMin = currTimeInMin;
+
+    return(result);
 }
 
 /******************************************************************************/
@@ -208,8 +215,11 @@ void update_time(void)
 
     greenHouseInfo.hour = (greenHouseInfo.sntpHour + ((greenHouseInfo.sntpSec + secCount) / 3600));
     greenHouseInfo.hour = (greenHouseInfo.hour % 24);
+    greenHouseInfo.day = greenHouseInfo.sntpDay;
 
     ESP_LOGI(tag, "Time ->  %02d:%02d:%02d", greenHouseInfo.hour, greenHouseInfo.min, greenHouseInfo.sec);
+    ESP_LOGI(tag, "Day  ->  %d", greenHouseInfo.day);
+
 
 }
 
@@ -229,10 +239,20 @@ void update_time(void)
 /******************************************************************************/
 void Update_Temperature(void)  
 {
+    char result_string[16] = {0};
+
     memcpy(&dummyHistory, tempHistory, TEMP_HISTORY_DEPTH);
     temp = Request_Temperature();
     tempHistory[0] = (uint8_t)temp;
     memcpy(&tempHistory[1], dummyHistory, TEMP_HISTORY_DEPTH-1);
+
+    if(tempHistory[0] != tempHistory[1])                /* Publish if change. */
+    {
+        memset(result_string, 0x00, sizeof(temp));
+        itoa(temp, result_string, 10);
+        esp_mqtt_client_publish(client, GREEN_HOUSE_TEMP_STATUS_TOPIC, 
+                                result_string, 2, 0, 0);
+    }
 } 
 
 /******************************************************************************/
@@ -251,8 +271,18 @@ void Update_Temperature(void)
 /******************************************************************************/
 void Update_Humidity(void)  
 {    
+    char result_string[16] = {0};
+    
     memcpy(&dummyHistory, humidityHistory, HUMIDITY_HISTORY_DEPTH);
     humidity = Request_Humidity();
     humidityHistory[0] = humidity;
     memcpy(&humidityHistory[1], dummyHistory, HUMIDITY_HISTORY_DEPTH-1);
+
+    if(humidityHistory[0] != humidityHistory[1])       /* Publish if change. */
+    {
+        memset(result_string, 0x00, sizeof(temp));
+        itoa(temp, result_string, 10);
+        esp_mqtt_client_publish(client, GREEN_HOUSE_HUMIDITY_STATUS_TOPIC, 
+                                result_string, 2, 0, 0);
+    }
 } 

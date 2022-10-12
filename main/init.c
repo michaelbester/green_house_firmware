@@ -252,6 +252,30 @@ static void Init_Settings(void)
 		greenHouseInfo.dripInfo[2].start_time = (5 * 60);
 	}
 
+	err = NVS_Read("DRIP_1_DAYS", &greenHouseInfo.dripInfo[0].days);
+
+	if(err != ESP_OK)
+	{
+		NVS_Write("DRIP_1_DAYS", 0);
+		greenHouseInfo.dripInfo[0].days = 0;
+	}
+
+	err = NVS_Read("DRIP_2_DAYS", &greenHouseInfo.dripInfo[1].days);
+
+	if(err != ESP_OK)
+	{
+		NVS_Write("DRIP_2_DAYS", 0);
+		greenHouseInfo.dripInfo[1].days = 0;
+	}
+
+	err = NVS_Read("DRIP_3_DAYS", &greenHouseInfo.dripInfo[2].days);
+
+	if(err != ESP_OK)
+	{
+		NVS_Write("DRIP_3_DAYS", 0);
+		greenHouseInfo.dripInfo[2].days = 0;
+	}
+
 	ESP_LOGI("init", "DRIP 1 START TIME:  %d", greenHouseInfo.dripInfo[0].start_time);
 	ESP_LOGI("init", "DRIP 2 START TIME:  %d", greenHouseInfo.dripInfo[1].start_time);
 	ESP_LOGI("init", "DRIP 3 START TIME:  %d", greenHouseInfo.dripInfo[2].start_time);
@@ -259,5 +283,9 @@ static void Init_Settings(void)
 	ESP_LOGI("init", "DRIP 1 DURATION:  %d", greenHouseInfo.dripInfo[0].duration);
 	ESP_LOGI("init", "DRIP 2 DURATION:  %d", greenHouseInfo.dripInfo[1].duration);
 	ESP_LOGI("init", "DRIP 3 DURATION:  %d", greenHouseInfo.dripInfo[2].duration);
+
+	ESP_LOGI("init", "DRIP 1 DAYS:  %d", greenHouseInfo.dripInfo[0].days);
+	ESP_LOGI("init", "DRIP 2 DAYS:  %d", greenHouseInfo.dripInfo[1].days);
+	ESP_LOGI("init", "DRIP 3 DAYS:  %d", greenHouseInfo.dripInfo[2].days);
 
 }

@@ -36,7 +36,7 @@
 #define FAN_OFF_TEMP_HYST           2
 #define VENT_OFF_TEMP_HYST          5
 
-#define SNTP_UPDATE_INTERVAL_MSEC   (1000*60*60*24)
+#define SNTP_UPDATE_INTERVAL_MSEC   (1000*60*60*1)
 
 #define DRIP_SYS                    3
 #define FANS                        2
@@ -78,6 +78,7 @@ struct DRIP_INFO
     bool state;                                                 /* ON or OFF. */
     int duration;                       /* Water on time duration in seconds. */
     int start_time;           /* Time drip turns on (seconds since midnight). */
+    int days;        /* Days to run, (1=Sun,2=Mon,4=Tue,8=Wed,16=Thur, 32=Fri)*/
 };
 
 struct GREEN_HOUSE_INFO
@@ -92,9 +93,11 @@ struct GREEN_HOUSE_INFO
     int sntpSec;
     int sntpMin;
     int sntpHour;
+    int sntpDay;
     int sec;
     int min;
     int hour;
+    int day;
     bool timeIsValid;
 };
 

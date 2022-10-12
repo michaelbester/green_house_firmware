@@ -25,6 +25,7 @@
 #include "time.h"
 #include "nvs_flash.h"
 #include "wifi_connect.h"
+#include "mqtt_client.h"
 #include "mqtt.h"
 #include "init.h"
 #include "update.h"
@@ -91,6 +92,8 @@ void app_main(void)
 /******************************************************************************/
 static void app_loop(void)
 {
+    bool has_changed;
+
     ESP_LOGI("main", "Starting app_loop %d", portTICK_PERIOD_MS);
 
     while(1)
@@ -102,9 +105,26 @@ static void app_loop(void)
 
         if(greenHouseInfo.timeIsValid) /* Run drip schedule if time is value. */
         {
-            update_drip(0);                          /* Control drip systems. */
-            update_drip(1); 
-            update_drip(2); 
+            has_changed = update_drip(0);            /* Control drip systems. */
+
+            if(has_changed == true)
+            {
+                //mqtt_publish_drip_status(0);
+            }
+
+            has_changed = update_drip(1); 
+
+            if(has_changed == true)
+            {
+                //mqtt_publish_drip_status(1);
+            }
+
+            has_changed = update_drip(2); 
+
+            if(has_changed == true)
+            {
+                //mqtt_publish_drip_status(2);
+            }
         }
     }
 }

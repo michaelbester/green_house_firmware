@@ -28,10 +28,14 @@
 #include "green_house.h"
 
 /******************************************************************************/
+/**************************** Global Variables ********************************/
+/******************************************************************************/
+esp_mqtt_client_handle_t client;
+
+/******************************************************************************/
 /**************************** Local Variables *********************************/
 /******************************************************************************/
 static const char *TAG = "mqtt";
-static esp_mqtt_client_handle_t client;
 
 /******************************************************************************/
 /**************************** Local Functions *********************************/
@@ -167,6 +171,15 @@ static esp_err_t mqtt_event_handler_cb(esp_mqtt_event_handle_t event)
             msg_id = esp_mqtt_client_subscribe(client, GREEN_HOUSE_DRIP1_SET_DURATION_TOPIC, 0);
             ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
 
+            msg_id = esp_mqtt_client_subscribe(client, GREEN_HOUSE_DRIP1_REQUEST_DAYS_TOPIC, 0);
+            ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
+
+            msg_id = esp_mqtt_client_subscribe(client, GREEN_HOUSE_DRIP1_SET_DAYS_TOPIC, 0);
+            ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
+
+            msg_id = esp_mqtt_client_subscribe(client, GREEN_HOUSE_DRIP1_DAYS_TOPIC, 0);
+            ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
+
             /*** DRIP #2 ***/
             msg_id = esp_mqtt_client_subscribe(client, GREEN_HOUSE_DRIP2_REQUEST_STATUS_TOPIC, 0);
             ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
@@ -186,6 +199,15 @@ static esp_err_t mqtt_event_handler_cb(esp_mqtt_event_handle_t event)
             msg_id = esp_mqtt_client_subscribe(client, GREEN_HOUSE_DRIP2_SET_DURATION_TOPIC, 0);
             ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
 
+            msg_id = esp_mqtt_client_subscribe(client, GREEN_HOUSE_DRIP2_REQUEST_DAYS_TOPIC, 0);
+            ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
+
+            msg_id = esp_mqtt_client_subscribe(client, GREEN_HOUSE_DRIP2_SET_DAYS_TOPIC, 0);
+            ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
+
+            msg_id = esp_mqtt_client_subscribe(client, GREEN_HOUSE_DRIP2_DAYS_TOPIC, 0);
+            ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
+
              /*** DRIP #3 ***/
             msg_id = esp_mqtt_client_subscribe(client, GREEN_HOUSE_DRIP3_REQUEST_STATUS_TOPIC, 0);
             ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
@@ -203,6 +225,15 @@ static esp_err_t mqtt_event_handler_cb(esp_mqtt_event_handle_t event)
             ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
 
             msg_id = esp_mqtt_client_subscribe(client, GREEN_HOUSE_DRIP3_SET_DURATION_TOPIC, 0);
+            ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
+
+            msg_id = esp_mqtt_client_subscribe(client, GREEN_HOUSE_DRIP3_REQUEST_DAYS_TOPIC, 0);
+            ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
+
+            msg_id = esp_mqtt_client_subscribe(client, GREEN_HOUSE_DRIP3_SET_DAYS_TOPIC, 0);
+            ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
+
+            msg_id = esp_mqtt_client_subscribe(client, GREEN_HOUSE_DRIP3_DAYS_TOPIC, 0);
             ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
 #if 0
             /*** GROW LIGHT ***/
@@ -328,7 +359,7 @@ static esp_err_t mqtt_event_handler_cb(esp_mqtt_event_handle_t event)
             if(strstr(event->topic, GREEN_HOUSE_DRIP1_REQUEST_STATUS_TOPIC) != NULL)
             {
                 ESP_LOGI(TAG, "Drip #1 Status Requested.");
-                if(greenHouseInfo.dripInfo[1].state)
+                if(greenHouseInfo.dripInfo[0].state)
                 {
                     sprintf(result_string, "%s", "ON");
                 }
@@ -360,7 +391,7 @@ static esp_err_t mqtt_event_handler_cb(esp_mqtt_event_handle_t event)
             if(strstr(event->topic, GREEN_HOUSE_DRIP3_REQUEST_STATUS_TOPIC) != NULL)
             {
                 ESP_LOGI(TAG, "Drip #3 Status Requested.");
-                if(greenHouseInfo.dripInfo[0].state)
+                if(greenHouseInfo.dripInfo[2].state)
                 {
                     sprintf(result_string, "%s", "ON");
                 }
@@ -421,7 +452,7 @@ static esp_err_t mqtt_event_handler_cb(esp_mqtt_event_handle_t event)
             if(strstr(event->topic, GREEN_HOUSE_DRIP1_REQUEST_DURATION_TOPIC) != NULL)
             {
                 ESP_LOGI(TAG, "Drip #1 Duration Requested.");
-                sprintf(result_string, "%s", Convert_Time_To_Duration(greenHouseInfo.dripInfo[0].duration));
+                sprintf(result_string, "%d", greenHouseInfo.dripInfo[0].duration);
 
                 esp_mqtt_client_publish(client, GREEN_HOUSE_DRIP1_DURATION_TOPIC, 
                                         result_string, strlen(result_string), 0, 0);    
@@ -430,18 +461,18 @@ static esp_err_t mqtt_event_handler_cb(esp_mqtt_event_handle_t event)
             if(strstr(event->topic, GREEN_HOUSE_DRIP2_REQUEST_DURATION_TOPIC) != NULL)
             {
                 ESP_LOGI(TAG, "Drip #2 Duration Requested.");
-                sprintf(result_string, "%s", Convert_Time_To_Duration(greenHouseInfo.dripInfo[1].duration));
+                sprintf(result_string, "%d", greenHouseInfo.dripInfo[1].duration);
 
-                esp_mqtt_client_publish(client, GREEN_HOUSE_DRIP1_DURATION_TOPIC, 
+                esp_mqtt_client_publish(client, GREEN_HOUSE_DRIP2_DURATION_TOPIC, 
                                         result_string, strlen(result_string), 0, 0);    
             }
 
             if(strstr(event->topic, GREEN_HOUSE_DRIP3_REQUEST_DURATION_TOPIC) != NULL)
             {
                 ESP_LOGI(TAG, "Drip #3 Duration Requested.");
-                sprintf(result_string, "%s", Convert_Time_To_Duration(greenHouseInfo.dripInfo[2].duration));
+                sprintf(result_string, "%d", greenHouseInfo.dripInfo[2].duration);
 
-                esp_mqtt_client_publish(client, GREEN_HOUSE_DRIP1_DURATION_TOPIC, 
+                esp_mqtt_client_publish(client, GREEN_HOUSE_DRIP3_DURATION_TOPIC, 
                                         result_string, strlen(result_string), 0, 0);    
             }
 
@@ -464,6 +495,54 @@ static esp_err_t mqtt_event_handler_cb(esp_mqtt_event_handle_t event)
                 ESP_LOGI(TAG, "Drip #3 Duration Set Command.");
                 event->data[event->data_len] = 0x00; 
                 Control_Drip_Duration_Time(2, event->data);
+            }
+
+            if(strstr(event->topic, GREEN_HOUSE_DRIP1_REQUEST_DAYS_TOPIC) != NULL)
+            {
+                ESP_LOGI(TAG, "Drip #1 Days Requested.");
+                sprintf(result_string, "%d", greenHouseInfo.dripInfo[0].days);
+
+                esp_mqtt_client_publish(client, GREEN_HOUSE_DRIP1_DAYS_TOPIC, 
+                                        result_string, strlen(result_string), 0, 0);    
+            }
+
+            if(strstr(event->topic, GREEN_HOUSE_DRIP2_REQUEST_DAYS_TOPIC) != NULL)
+            {
+                ESP_LOGI(TAG, "Drip #2 Days Requested.");
+                sprintf(result_string, "%d", greenHouseInfo.dripInfo[1].days);
+
+                esp_mqtt_client_publish(client, GREEN_HOUSE_DRIP2_DAYS_TOPIC, 
+                                        result_string, strlen(result_string), 0, 0);    
+            }
+
+            if(strstr(event->topic, GREEN_HOUSE_DRIP3_REQUEST_DAYS_TOPIC) != NULL)
+            {
+                ESP_LOGI(TAG, "Drip #3 Days Requested.");
+                sprintf(result_string, "%d", greenHouseInfo.dripInfo[2].days);
+
+                esp_mqtt_client_publish(client, GREEN_HOUSE_DRIP3_DAYS_TOPIC, 
+                                        result_string, strlen(result_string), 0, 0);    
+            }
+
+            if(strstr(event->topic, GREEN_HOUSE_DRIP1_SET_DAYS_TOPIC) != NULL)
+            {
+                ESP_LOGI(TAG, "Drip #1 Days Set Command.");
+                event->data[event->data_len] = 0x00; 
+                Control_Drip_Days(0, event->data);
+            }
+            
+            if(strstr(event->topic, GREEN_HOUSE_DRIP2_SET_DAYS_TOPIC) != NULL)
+            {
+                ESP_LOGI(TAG, "Drip #2 Days Set Command.");
+                event->data[event->data_len] = 0x00; 
+                Control_Drip_Days(1, event->data);
+            }
+
+            if(strstr(event->topic, GREEN_HOUSE_DRIP3_SET_DAYS_TOPIC) != NULL)
+            {
+                ESP_LOGI(TAG, "Drip #3 Days Set Command.");
+                event->data[event->data_len] = 0x00; 
+                Control_Drip_Days(2, event->data);
             }
         break;
 
@@ -527,12 +606,19 @@ static void log_error_if_nonzero(const char * message, int error_code)
 char* Convert_Time_To_String(uint32_t rawTime)   
 {
     uint8_t hour, minute;
-    static char time_string[8];
-    uint32_t x;
+    static char time_string[16];
 
     hour = rawTime / 60;
     minute = (rawTime - (hour * 60));
-    sprintf(time_string, "%02d:%02d", hour, minute);
+    if(hour > 12)
+    {
+        hour -= 12;
+        sprintf(time_string, "%d:%02dPM", hour, minute);
+    }
+    else
+    {
+        sprintf(time_string, "%d:%02dAM", hour, minute);
+    }
 
     return(time_string);
 }
@@ -562,6 +648,57 @@ char* Convert_Time_To_Duration(uint32_t rawTime)
     sprintf(duration_string, "%02d:%02d", hour, minute);
 
     return(duration_string);
+}
+
+/******************************************************************************/
+/* Function:    void mqtt_publish_drip_status(uint8_t drip)                   */
+/*                                                                            */
+/* Inputs:      drip:  Drip selection.                                        */
+/*                                                                            */
+/* Outputs:     None.                                                         */
+/*                                                                            */
+/* Description: This function sends new drip status msg.                      */
+/*                                                                            */
+/* Author:      Michael Bester                                                */
+/*                                                                            */
+/* Notes:                                                                     */
+/*                                                                            */
+/******************************************************************************/
+void mqtt_publish_drip_status(uint8_t drip)
+{
+    ESP_LOGI(TAG, "Drip %d Status Sent.", drip);
+    char* topic;
+    char result_string[16] = {0};
+
+    switch(drip)
+    {
+        case(0):
+            topic = GREEN_HOUSE_DRIP1_STATUS_TOPIC;
+        break;
+
+        case(1):
+            topic = GREEN_HOUSE_DRIP2_STATUS_TOPIC;
+        break;
+
+        case(2):
+            topic = GREEN_HOUSE_DRIP3_STATUS_TOPIC;
+        break;
+
+        default:
+            topic = GREEN_HOUSE_DRIP1_STATUS_TOPIC;
+        break;
+    }
+    if(greenHouseInfo.dripInfo[drip].state)
+    {
+        sprintf(result_string, "%s", "ON");
+    }
+    else
+    {
+        sprintf(result_string, "%s", "OFF");
+    }
+
+    esp_mqtt_client_publish(client, topic, result_string, 
+                            strlen(result_string), 0, 0);
 }
 
 

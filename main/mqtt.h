@@ -16,6 +16,7 @@
 /******************************************************************************/
 /**************************** External Variables ******************************/
 /******************************************************************************/
+extern esp_mqtt_client_handle_t client;
 
 /******************************************************************************/
 /****************************** Enumerations **********************************/
@@ -24,9 +25,8 @@
 /******************************************************************************/
 /******************************* Definitions **********************************/
 /******************************************************************************/
-//#define CONFIG_BROKER_URL                             "mqtt://mqtt.iotwithus.com" 
-#define CONFIG_BROKER_URL                               "mqtt://test.mosquitto.org"
-
+//#define CONFIG_BROKER_URL                               "mqtt://test.mosquitto.org"
+#define CONFIG_BROKER_URL                               "mqtt://192.168.0.192"
 #define GREEN_HOUSE_TEMP_REQUEST_TOPIC                  "/greenhouse/temp/request"
 #define GREEN_HOUSE_TEMP_STATUS_TOPIC                   "/greenhouse/temp"
 #define GREEN_HOUSE_TEMP_HISTORY_REQUEST_TOPIC          "/greenhouse/temp/history/request"
@@ -64,6 +64,9 @@
 #define GREEN_HOUSE_DRIP1_SET_DURATION_TOPIC            "/greenhouse/drip1/duration/set"
 #define GREEN_HOUSE_DRIP1_DURATION_TOPIC                "/greenhouse/drip1/duration"
 
+#define GREEN_HOUSE_DRIP1_REQUEST_DAYS_TOPIC            "/greenhouse/drip1/days/request"
+#define GREEN_HOUSE_DRIP1_SET_DAYS_TOPIC                "/greenhouse/drip1/days/set"
+#define GREEN_HOUSE_DRIP1_DAYS_TOPIC                    "/greenhouse/drip1/days"
 
 /*** DRIP #2 INTERFACE ***/
 #define GREEN_HOUSE_DRIP2_REQUEST_STATUS_TOPIC          "/greenhouse/drip2/status/request"
@@ -79,6 +82,9 @@
 #define GREEN_HOUSE_DRIP2_SET_DURATION_TOPIC            "/greenhouse/drip2/duration/set"
 #define GREEN_HOUSE_DRIP2_DURATION_TOPIC                "/greenhouse/drip2/duration"
 
+#define GREEN_HOUSE_DRIP2_REQUEST_DAYS_TOPIC            "/greenhouse/drip2/days/request"
+#define GREEN_HOUSE_DRIP2_SET_DAYS_TOPIC                "/greenhouse/drip2/days/set"
+#define GREEN_HOUSE_DRIP2_DAYS_TOPIC                    "/greenhouse/drip2/days"
 
 /*** DRIP #3 INTERFACE ***/
 #define GREEN_HOUSE_DRIP3_REQUEST_STATUS_TOPIC          "/greenhouse/drip3/status/request"
@@ -93,6 +99,10 @@
 #define GREEN_HOUSE_DRIP3_REQUEST_DURATION_TOPIC        "/greenhouse/drip3/duration/request"
 #define GREEN_HOUSE_DRIP3_SET_DURATION_TOPIC            "/greenhouse/drip3/duration/set"
 #define GREEN_HOUSE_DRIP3_DURATION_TOPIC                "/greenhouse/drip3/duration"
+
+#define GREEN_HOUSE_DRIP3_REQUEST_DAYS_TOPIC            "/greenhouse/drip3/days/request"
+#define GREEN_HOUSE_DRIP3_SET_DAYS_TOPIC                "/greenhouse/drip3/days/set"
+#define GREEN_HOUSE_DRIP3_DAYS_TOPIC                    "/greenhouse/drip3/days"
 
 /*** GROW LIGHT INTERFACE ***/
 #define GREEN_HOUSE_GROWLIGHT_STATUS_TOPIC              "/greenhouse/growlight/status"
@@ -114,5 +124,6 @@ void MQTT_Send_Temp(void);
 void MQTT_Send_Humidty(void);
 char* Convert_Time_To_String(uint32_t rawTime);
 char* Convert_Time_To_Duration(uint32_t rawTime);
+void mqtt_publish_drip_status(uint8_t drip);
 
 #endif

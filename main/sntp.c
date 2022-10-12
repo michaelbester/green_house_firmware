@@ -100,11 +100,13 @@ bool sntp_get_time(void)
 
     localtime_r(&now, &timeinfo);
     strftime(strftime_buf, sizeof(strftime_buf), "%c", &timeinfo);
+
     ESP_LOGI(tag, "The current date/time in New York is: %s", strftime_buf);
 
     greenHouseInfo.sntpSec = timeinfo.tm_sec;
     greenHouseInfo.sntpMin = timeinfo.tm_min;
     greenHouseInfo.sntpHour = timeinfo.tm_hour;
+    greenHouseInfo.sntpDay = timeinfo.tm_wday;
 
     sntp_stop();
 

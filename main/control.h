@@ -34,6 +34,7 @@ void Control_Fan_Set_Temp_On(char *cmd);
 void Control_Drip(uint8_t id, char* cmd);
 void Control_Drip_Start_Time(uint8_t id, char *on_time);
 void Control_Drip_Duration_Time(uint8_t id, char *duration);
+void Control_Drip_Days(uint8_t id, char *days);
 
 #endif
 

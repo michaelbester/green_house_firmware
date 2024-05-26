@@ -1,0 +1,4 @@
+[0/1] Re-running CMake...
+-- Configuring incomplete, errors occurred!
+FAILED: build.ninja 
+/usr/bin/cmake --regenerate-during-build -S/home/michaelb/Projects/green_house_firmware-main -B/home/michaelb/Projects/green_house_firmware-main/build

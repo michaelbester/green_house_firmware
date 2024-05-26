@@ -1,0 +1,44 @@
+[1/17] Performing build step for 'bootloader'
+[1/1] cd /home/michaelb/Projects/green_house_firmware-main/build/bootloader/esp-idf/esptool_py && /home/michaelb/.espressif/python_env/idf5.0_py3.12_env/bin/python /home/michaelb/Projects/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/michaelb/Projects/green_house_firmware-main/build/bootloader/bootloader.bin
+Bootloader binary size 0x6700 bytes. 0x900 bytes (8%) free.
+[2/17] No install step for 'bootloader'
+[3/17] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/control.c.obj
+[4/17] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/update.c.obj
+[5/17] Completed 'bootloader'
+[6/17] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/init.c.obj
+/home/michaelb/Projects/green_house_firmware-main/main/init.c: In function 'Init_Settings':
+/home/michaelb/Projects/green_house_firmware-main/main/init.c:191:39: warning: passing argument 2 of 'NVS_Read' from incompatible pointer type [-Wincompatible-pointer-types]
+  191 |         err = NVS_Read("FAN_TEMP_ON", &greenHouseInfo.fanTempOn);
+      |                                       ^~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                       |
+      |                                       int8_t * {aka signed char *}
+In file included from /home/michaelb/Projects/green_house_firmware-main/main/init.c:29:
+/home/michaelb/Projects/green_house_firmware-main/main/nvs.h:33:36: note: expected 'int *' but argument is of type 'int8_t *' {aka 'signed char *'}
+   33 | esp_err_t NVS_Read(char* key, int* val);
+      |                               ~~~~~^~~
+/home/michaelb/Projects/green_house_firmware-main/main/init.c:199:40: warning: passing argument 2 of 'NVS_Read' from incompatible pointer type [-Wincompatible-pointer-types]
+  199 |         err = NVS_Read("FAN_TEMP_OFF", &greenHouseInfo.fanTempOn);
+      |                                        ^~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                        |
+      |                                        int8_t * {aka signed char *}
+In file included from /home/michaelb/Projects/green_house_firmware-main/main/init.c:29:
+/home/michaelb/Projects/green_house_firmware-main/main/nvs.h:33:36: note: expected 'int *' but argument is of type 'int8_t *' {aka 'signed char *'}
+   33 | esp_err_t NVS_Read(char* key, int* val);
+      |                               ~~~~~^~~
+[7/17] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/sntp.c.obj
+[8/17] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/request.c.obj
+[9/17] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/nvs.c.obj
+[10/17] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj
+[11/17] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/wifi_connect.c.obj
+[12/17] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/mqtt.c.obj
+[13/17] Linking C static library esp-idf/main/libmain.a
+[14/17] Generating ld/sections.ld
+[15/17] Linking CXX executable firmware.elf
+[16/17] Generating binary image from built executable
+esptool.py v4.7.0
+Creating esp32 image...
+Merged 25 ELF sections
+Successfully created esp32 image.
+Generated /home/michaelb/Projects/green_house_firmware-main/build/firmware.bin
+[17/17] cd /home/michaelb/Projects/green_house_firmware-main/build/esp-idf/esptool_py && /home/michaelb/.espressif/python_env/idf5.0_py3.12_env/bin/python /home/michaelb/Projects/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/michaelb/Projects/green_house_firmware-main/build/partition_table/partition-table.bin /home/michaelb/Projects/green_house_firmware-main/build/firmware.bin
+firmware.bin binary size 0xd6e40 bytes. Smallest app partition is 0x100000 bytes. 0x291c0 bytes (16%) free.

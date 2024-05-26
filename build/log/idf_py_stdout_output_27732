@@ -1,0 +1,393 @@
+[0/1] Re-running CMake...
+-- Component directory /home/michaelb/Projects/green_house_firmware-main/components/components does not contain a CMakeLists.txt file. No component will be added
+-- Project is not inside a git repository, or git repository has no commits; will not use 'git describe' to determine PROJECT_VER.
+-- Building ESP-IDF components for target esp32
+-- Project sdkconfig file /home/michaelb/Projects/green_house_firmware-main/sdkconfig
+-- App "firmware" version: 1
+-- Adding linker script /home/michaelb/Projects/green_house_firmware-main/build/esp-idf/esp_system/ld/memory.ld
+-- Adding linker script /home/michaelb/Projects/esp/esp-idf/components/esp_system/ld/esp32/sections.ld.in
+-- Adding linker script /home/michaelb/Projects/esp/esp-idf/components/esp_rom/esp32/ld/esp32.rom.ld
+-- Adding linker script /home/michaelb/Projects/esp/esp-idf/components/esp_rom/esp32/ld/esp32.rom.api.ld
+-- Adding linker script /home/michaelb/Projects/esp/esp-idf/components/esp_rom/esp32/ld/esp32.rom.libgcc.ld
+-- Adding linker script /home/michaelb/Projects/esp/esp-idf/components/esp_rom/esp32/ld/esp32.rom.newlib-data.ld
+-- Adding linker script /home/michaelb/Projects/esp/esp-idf/components/esp_rom/esp32/ld/esp32.rom.syscalls.ld
+-- Adding linker script /home/michaelb/Projects/esp/esp-idf/components/esp_rom/esp32/ld/esp32.rom.newlib-funcs.ld
+-- Adding linker script /home/michaelb/Projects/esp/esp-idf/components/soc/esp32/ld/esp32.peripherals.ld
+-- Components: app_trace app_update bootloader bootloader_support bt cmock console cxx driver efuse esp-tls esp_adc esp_app_format esp_common esp_eth esp_event esp_gdbstub esp_hid esp_http_client esp_http_server esp_https_ota esp_https_server esp_hw_support esp_lcd esp_local_ctrl esp_netif esp_partition esp_phy esp_pm esp_psram esp_ringbuf esp_rom esp_system esp_timer esp_wifi espcoredump esptool_py fatfs freertos hal heap http_parser idf_test ieee802154 json log lwip main mbedtls mqtt newlib nvs_flash openthread partition_table perfmon protobuf-c protocomm pthread sdmmc soc spi_flash spiffs tcp_transport ulp unity usb vfs wear_levelling wifi_provisioning wpa_supplicant xtensa
+-- Component paths: /home/michaelb/Projects/esp/esp-idf/components/app_trace /home/michaelb/Projects/esp/esp-idf/components/app_update /home/michaelb/Projects/esp/esp-idf/components/bootloader /home/michaelb/Projects/esp/esp-idf/components/bootloader_support /home/michaelb/Projects/esp/esp-idf/components/bt /home/michaelb/Projects/esp/esp-idf/components/cmock /home/michaelb/Projects/esp/esp-idf/components/console /home/michaelb/Projects/esp/esp-idf/components/cxx /home/michaelb/Projects/esp/esp-idf/components/driver /home/michaelb/Projects/esp/esp-idf/components/efuse /home/michaelb/Projects/esp/esp-idf/components/esp-tls /home/michaelb/Projects/esp/esp-idf/components/esp_adc /home/michaelb/Projects/esp/esp-idf/components/esp_app_format /home/michaelb/Projects/esp/esp-idf/components/esp_common /home/michaelb/Projects/esp/esp-idf/components/esp_eth /home/michaelb/Projects/esp/esp-idf/components/esp_event /home/michaelb/Projects/esp/esp-idf/components/esp_gdbstub /home/michaelb/Projects/esp/esp-idf/components/esp_hid /home/michaelb/Projects/esp/esp-idf/components/esp_http_client /home/michaelb/Projects/esp/esp-idf/components/esp_http_server /home/michaelb/Projects/esp/esp-idf/components/esp_https_ota /home/michaelb/Projects/esp/esp-idf/components/esp_https_server /home/michaelb/Projects/esp/esp-idf/components/esp_hw_support /home/michaelb/Projects/esp/esp-idf/components/esp_lcd /home/michaelb/Projects/esp/esp-idf/components/esp_local_ctrl /home/michaelb/Projects/esp/esp-idf/components/esp_netif /home/michaelb/Projects/esp/esp-idf/components/esp_partition /home/michaelb/Projects/esp/esp-idf/components/esp_phy /home/michaelb/Projects/esp/esp-idf/components/esp_pm /home/michaelb/Projects/esp/esp-idf/components/esp_psram /home/michaelb/Projects/esp/esp-idf/components/esp_ringbuf /home/michaelb/Projects/esp/esp-idf/components/esp_rom /home/michaelb/Projects/esp/esp-idf/components/esp_system /home/michaelb/Projects/esp/esp-idf/components/esp_timer /home/michaelb/Projects/esp/esp-idf/components/esp_wifi /home/michaelb/Projects/esp/esp-idf/components/espcoredump /home/michaelb/Projects/esp/esp-idf/components/esptool_py /home/michaelb/Projects/esp/esp-idf/components/fatfs /home/michaelb/Projects/esp/esp-idf/components/freertos /home/michaelb/Projects/esp/esp-idf/components/hal /home/michaelb/Projects/esp/esp-idf/components/heap /home/michaelb/Projects/esp/esp-idf/components/http_parser /home/michaelb/Projects/esp/esp-idf/components/idf_test /home/michaelb/Projects/esp/esp-idf/components/ieee802154 /home/michaelb/Projects/esp/esp-idf/components/json /home/michaelb/Projects/esp/esp-idf/components/log /home/michaelb/Projects/esp/esp-idf/components/lwip /home/michaelb/Projects/green_house_firmware-main/main /home/michaelb/Projects/esp/esp-idf/components/mbedtls /home/michaelb/Projects/esp/esp-idf/components/mqtt /home/michaelb/Projects/esp/esp-idf/components/newlib /home/michaelb/Projects/esp/esp-idf/components/nvs_flash /home/michaelb/Projects/esp/esp-idf/components/openthread /home/michaelb/Projects/esp/esp-idf/components/partition_table /home/michaelb/Projects/esp/esp-idf/components/perfmon /home/michaelb/Projects/esp/esp-idf/components/protobuf-c /home/michaelb/Projects/esp/esp-idf/components/protocomm /home/michaelb/Projects/esp/esp-idf/components/pthread /home/michaelb/Projects/esp/esp-idf/components/sdmmc /home/michaelb/Projects/esp/esp-idf/components/soc /home/michaelb/Projects/esp/esp-idf/components/spi_flash /home/michaelb/Projects/esp/esp-idf/components/spiffs /home/michaelb/Projects/esp/esp-idf/components/tcp_transport /home/michaelb/Projects/esp/esp-idf/components/ulp /home/michaelb/Projects/esp/esp-idf/components/unity /home/michaelb/Projects/esp/esp-idf/components/usb /home/michaelb/Projects/esp/esp-idf/components/vfs /home/michaelb/Projects/esp/esp-idf/components/wear_levelling /home/michaelb/Projects/esp/esp-idf/components/wifi_provisioning /home/michaelb/Projects/esp/esp-idf/components/wpa_supplicant /home/michaelb/Projects/esp/esp-idf/components/xtensa
+-- Configuring done (2.8s)
+-- Generating done (0.3s)
+-- Build files have been written to: /home/michaelb/Projects/green_house_firmware-main/build
+[1/13] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/nvs.c.obj
+FAILED: esp-idf/main/CMakeFiles/__idf_main.dir/nvs.c.obj 
+/home/michaelb/.espressif/tools/xtensa-esp32-elf/esp-2022r1-11.2.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc -DMBEDTLS_CONFIG_FILE=\"mbedtls/esp_config.h\" -DUNITY_INCLUDE_CONFIG_H -I/home/michaelb/Projects/green_house_firmware-main/build/config -I/home/michaelb/Projects/green_house_firmware-main/main -I/home/michaelb/Projects/esp/esp-idf/components/newlib/platform_include -I/home/michaelb/Projects/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include -I/home/michaelb/Projects/esp/esp-idf/components/freertos/esp_additions/include/freertos -I/home/michaelb/Projects/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -I/home/michaelb/Projects/esp/esp-idf/components/freertos/esp_additions/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_hw_support/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_hw_support/include/soc -I/home/michaelb/Projects/esp/esp-idf/components/esp_hw_support/include/soc/esp32 -I/home/michaelb/Projects/esp/esp-idf/components/esp_hw_support/port/esp32/. -I/home/michaelb/Projects/esp/esp-idf/components/esp_hw_support/port/esp32/private_include -I/home/michaelb/Projects/esp/esp-idf/components/heap/include -I/home/michaelb/Projects/esp/esp-idf/components/log/include -I/home/michaelb/Projects/esp/esp-idf/components/soc/include -I/home/michaelb/Projects/esp/esp-idf/components/soc/esp32/. -I/home/michaelb/Projects/esp/esp-idf/components/soc/esp32/include -I/home/michaelb/Projects/esp/esp-idf/components/hal/esp32/include -I/home/michaelb/Projects/esp/esp-idf/components/hal/include -I/home/michaelb/Projects/esp/esp-idf/components/hal/platform_port/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_rom/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_rom/include/esp32 -I/home/michaelb/Projects/esp/esp-idf/components/esp_rom/esp32 -I/home/michaelb/Projects/esp/esp-idf/components/esp_common/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_system/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_system/port/soc -I/home/michaelb/Projects/esp/esp-idf/components/esp_system/port/include/private -I/home/michaelb/Projects/esp/esp-idf/components/xtensa/include -I/home/michaelb/Projects/esp/esp-idf/components/xtensa/esp32/include -I/home/michaelb/Projects/esp/esp-idf/components/lwip/include -I/home/michaelb/Projects/esp/esp-idf/components/lwip/include/apps -I/home/michaelb/Projects/esp/esp-idf/components/lwip/include/apps/sntp -I/home/michaelb/Projects/esp/esp-idf/components/lwip/lwip/src/include -I/home/michaelb/Projects/esp/esp-idf/components/lwip/port/esp32/include -I/home/michaelb/Projects/esp/esp-idf/components/lwip/port/esp32/include/arch -I/home/michaelb/Projects/esp/esp-idf/components/esp_ringbuf/include -I/home/michaelb/Projects/esp/esp-idf/components/efuse/include -I/home/michaelb/Projects/esp/esp-idf/components/efuse/esp32/include -I/home/michaelb/Projects/esp/esp-idf/components/driver/include -I/home/michaelb/Projects/esp/esp-idf/components/driver/deprecated -I/home/michaelb/Projects/esp/esp-idf/components/driver/esp32/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_pm/include -I/home/michaelb/Projects/esp/esp-idf/components/mbedtls/port/include -I/home/michaelb/Projects/esp/esp-idf/components/mbedtls/mbedtls/include -I/home/michaelb/Projects/esp/esp-idf/components/mbedtls/mbedtls/library -I/home/michaelb/Projects/esp/esp-idf/components/mbedtls/esp_crt_bundle/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_app_format/include -I/home/michaelb/Projects/esp/esp-idf/components/bootloader_support/include -I/home/michaelb/Projects/esp/esp-idf/components/bootloader_support/bootloader_flash/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_partition/include -I/home/michaelb/Projects/esp/esp-idf/components/app_update/include -I/home/michaelb/Projects/esp/esp-idf/components/spi_flash/include -I/home/michaelb/Projects/esp/esp-idf/components/pthread/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_timer/include -I/home/michaelb/Projects/esp/esp-idf/components/app_trace/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_event/include -I/home/michaelb/Projects/esp/esp-idf/components/nvs_flash/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_phy/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_phy/esp32/include -I/home/michaelb/Projects/esp/esp-idf/components/vfs/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_netif/include -I/home/michaelb/Projects/esp/esp-idf/components/wpa_supplicant/include -I/home/michaelb/Projects/esp/esp-idf/components/wpa_supplicant/port/include -I/home/michaelb/Projects/esp/esp-idf/components/wpa_supplicant/esp_supplicant/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_wifi/include -I/home/michaelb/Projects/esp/esp-idf/components/unity/include -I/home/michaelb/Projects/esp/esp-idf/components/unity/unity/src -I/home/michaelb/Projects/esp/esp-idf/components/cmock/CMock/src -I/home/michaelb/Projects/esp/esp-idf/components/console -I/home/michaelb/Projects/esp/esp-idf/components/http_parser -I/home/michaelb/Projects/esp/esp-idf/components/esp-tls -I/home/michaelb/Projects/esp/esp-idf/components/esp-tls/esp-tls-crypto -I/home/michaelb/Projects/esp/esp-idf/components/esp_adc/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_adc/interface -I/home/michaelb/Projects/esp/esp-idf/components/esp_adc/esp32/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_adc/deprecated/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_eth/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_gdbstub/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_gdbstub/xtensa -I/home/michaelb/Projects/esp/esp-idf/components/esp_gdbstub/esp32 -I/home/michaelb/Projects/esp/esp-idf/components/esp_hid/include -I/home/michaelb/Projects/esp/esp-idf/components/tcp_transport/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_http_client/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_http_server/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_https_ota/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_lcd/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_lcd/interface -I/home/michaelb/Projects/esp/esp-idf/components/protobuf-c/protobuf-c -I/home/michaelb/Projects/esp/esp-idf/components/protocomm/include/common -I/home/michaelb/Projects/esp/esp-idf/components/protocomm/include/security -I/home/michaelb/Projects/esp/esp-idf/components/protocomm/include/transports -I/home/michaelb/Projects/esp/esp-idf/components/esp_local_ctrl/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_psram/include -I/home/michaelb/Projects/esp/esp-idf/components/espcoredump/include -I/home/michaelb/Projects/esp/esp-idf/components/espcoredump/include/port/xtensa -I/home/michaelb/Projects/esp/esp-idf/components/wear_levelling/include -I/home/michaelb/Projects/esp/esp-idf/components/sdmmc/include -I/home/michaelb/Projects/esp/esp-idf/components/fatfs/diskio -I/home/michaelb/Projects/esp/esp-idf/components/fatfs/vfs -I/home/michaelb/Projects/esp/esp-idf/components/fatfs/src -I/home/michaelb/Projects/esp/esp-idf/components/idf_test/include -I/home/michaelb/Projects/esp/esp-idf/components/idf_test/include/esp32 -I/home/michaelb/Projects/esp/esp-idf/components/ieee802154/include -I/home/michaelb/Projects/esp/esp-idf/components/json/cJSON -I/home/michaelb/Projects/esp/esp-idf/components/mqtt/esp-mqtt/include -I/home/michaelb/Projects/esp/esp-idf/components/perfmon/include -I/home/michaelb/Projects/esp/esp-idf/components/spiffs/include -I/home/michaelb/Projects/esp/esp-idf/components/ulp/ulp_common/include -I/home/michaelb/Projects/esp/esp-idf/components/ulp/ulp_common/include/esp32 -I/home/michaelb/Projects/esp/esp-idf/components/wifi_provisioning/include -mlongcalls -Wno-frame-address  -fdiagnostics-color=always -ffunction-sections -fdata-sections -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-enum-conversion -gdwarf-4 -ggdb -Og -fmacro-prefix-map=/home/michaelb/Projects/green_house_firmware-main=. -fmacro-prefix-map=/home/michaelb/Projects/esp/esp-idf=/IDF -fstrict-volatile-bitfields -Wno-error=unused-but-set-variable -fno-jump-tables -fno-tree-switch-conversion -DconfigENABLE_FREERTOS_DEBUG_OCDAWARE=1 -std=gnu17 -Wno-old-style-declaration -D_GNU_SOURCE -DIDF_VER=\"v5.0\" -DESP_PLATFORM -D_POSIX_READER_WRITER_LOCKS -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/nvs.c.obj -MF esp-idf/main/CMakeFiles/__idf_main.dir/nvs.c.obj.d -o esp-idf/main/CMakeFiles/__idf_main.dir/nvs.c.obj -c /home/michaelb/Projects/green_house_firmware-main/main/nvs.c
+In file included from /home/michaelb/Projects/green_house_firmware-main/main/nvs.c:23:
+/home/michaelb/Projects/green_house_firmware-main/main/nvs.c: In function 'NVS_Write':
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:265:27: error: format '%d' expects argument of type 'int', but argument 6 has type 'int32_t' {aka 'long int'} [-Werror=format=]
+  265 | #define LOG_COLOR(COLOR)  "\033[0;" COLOR "m"
+      |                           ^~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:268:27: note: in expansion of macro 'LOG_COLOR'
+  268 | #define LOG_COLOR_E       LOG_COLOR(LOG_COLOR_RED)
+      |                           ^~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:282:37: note: in expansion of macro 'LOG_COLOR_E'
+  282 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                     ^~~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:410:86: note: in expansion of macro 'LOG_FORMAT'
+  410 |         if (level==ESP_LOG_ERROR )          { esp_log_write(ESP_LOG_ERROR,      tag, LOG_FORMAT(E, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                      ^~~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:432:41: note: in expansion of macro 'ESP_LOG_LEVEL'
+  432 |         if ( LOG_LOCAL_LEVEL >= level ) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                         ^~~~~~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:342:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  342 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/michaelb/Projects/green_house_firmware-main/main/nvs.c:83:9: note: in expansion of macro 'ESP_LOGI'
+   83 |         ESP_LOGI(tag, "Wrote value %d to key name %s", val, key);
+      |         ^~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:265:27: error: format '%d' expects argument of type 'int', but argument 6 has type 'int32_t' {aka 'long int'} [-Werror=format=]
+  265 | #define LOG_COLOR(COLOR)  "\033[0;" COLOR "m"
+      |                           ^~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:269:27: note: in expansion of macro 'LOG_COLOR'
+  269 | #define LOG_COLOR_W       LOG_COLOR(LOG_COLOR_BROWN)
+      |                           ^~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:282:37: note: in expansion of macro 'LOG_COLOR_W'
+  282 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                     ^~~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:411:86: note: in expansion of macro 'LOG_FORMAT'
+  411 |         else if (level==ESP_LOG_WARN )      { esp_log_write(ESP_LOG_WARN,       tag, LOG_FORMAT(W, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                      ^~~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:432:41: note: in expansion of macro 'ESP_LOG_LEVEL'
+  432 |         if ( LOG_LOCAL_LEVEL >= level ) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                         ^~~~~~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:342:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  342 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/michaelb/Projects/green_house_firmware-main/main/nvs.c:83:9: note: in expansion of macro 'ESP_LOGI'
+   83 |         ESP_LOGI(tag, "Wrote value %d to key name %s", val, key);
+      |         ^~~~~~~~
+/home/michaelb/Projects/green_house_firmware-main/main/nvs.c:83:1: error: format '%d' expects argument of type 'int', but argument 6 has type 'int32_t' {aka 'long int'} [-Werror=format=]
+   83 |         ESP_LOGI(tag, "Wrote value %d to key name %s", val, key);
+      | ^       ~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:282:59: note: in definition of macro 'LOG_FORMAT'
+  282 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                                           ^~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:432:41: note: in expansion of macro 'ESP_LOG_LEVEL'
+  432 |         if ( LOG_LOCAL_LEVEL >= level ) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                         ^~~~~~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:342:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  342 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/michaelb/Projects/green_house_firmware-main/main/nvs.c:83:9: note: in expansion of macro 'ESP_LOGI'
+   83 |         ESP_LOGI(tag, "Wrote value %d to key name %s", val, key);
+      |         ^~~~~~~~
+/home/michaelb/Projects/green_house_firmware-main/main/nvs.c:83:1: error: format '%d' expects argument of type 'int', but argument 6 has type 'int32_t' {aka 'long int'} [-Werror=format=]
+   83 |         ESP_LOGI(tag, "Wrote value %d to key name %s", val, key);
+      | ^       ~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:282:59: note: in definition of macro 'LOG_FORMAT'
+  282 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                                           ^~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:432:41: note: in expansion of macro 'ESP_LOG_LEVEL'
+  432 |         if ( LOG_LOCAL_LEVEL >= level ) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                         ^~~~~~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:342:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  342 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/michaelb/Projects/green_house_firmware-main/main/nvs.c:83:9: note: in expansion of macro 'ESP_LOGI'
+   83 |         ESP_LOGI(tag, "Wrote value %d to key name %s", val, key);
+      |         ^~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:265:27: error: format '%d' expects argument of type 'int', but argument 6 has type 'int32_t' {aka 'long int'} [-Werror=format=]
+  265 | #define LOG_COLOR(COLOR)  "\033[0;" COLOR "m"
+      |                           ^~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:270:27: note: in expansion of macro 'LOG_COLOR'
+  270 | #define LOG_COLOR_I       LOG_COLOR(LOG_COLOR_GREEN)
+      |                           ^~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:282:37: note: in expansion of macro 'LOG_COLOR_I'
+  282 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                     ^~~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:414:86: note: in expansion of macro 'LOG_FORMAT'
+  414 |         else                                { esp_log_write(ESP_LOG_INFO,       tag, LOG_FORMAT(I, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                      ^~~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:432:41: note: in expansion of macro 'ESP_LOG_LEVEL'
+  432 |         if ( LOG_LOCAL_LEVEL >= level ) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                         ^~~~~~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:342:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  342 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/michaelb/Projects/green_house_firmware-main/main/nvs.c:83:9: note: in expansion of macro 'ESP_LOGI'
+   83 |         ESP_LOGI(tag, "Wrote value %d to key name %s", val, key);
+      |         ^~~~~~~~
+/home/michaelb/Projects/green_house_firmware-main/main/nvs.c: In function 'NVS_Read':
+/home/michaelb/Projects/green_house_firmware-main/main/nvs.c:117:40: warning: passing argument 3 of 'nvs_get_i32' from incompatible pointer type [-Wincompatible-pointer-types]
+  117 |     err = nvs_get_i32(nvs_handle, key, val);
+      |                                        ^~~
+      |                                        |
+      |                                        int *
+In file included from /home/michaelb/Projects/esp/esp-idf/components/nvs_flash/include/nvs_flash.h:21,
+                 from /home/michaelb/Projects/green_house_firmware-main/main/nvs.c:24:
+/home/michaelb/Projects/esp/esp-idf/components/nvs_flash/include/nvs.h:375:71: note: expected 'int32_t *' {aka 'long int *'} but argument is of type 'int *'
+  375 | esp_err_t nvs_get_i32 (nvs_handle_t handle, const char* key, int32_t* out_value);
+      |                                                              ~~~~~~~~~^~~~~~~~~
+cc1: some warnings being treated as errors
+[2/13] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/wifi_connect.c.obj
+FAILED: esp-idf/main/CMakeFiles/__idf_main.dir/wifi_connect.c.obj 
+/home/michaelb/.espressif/tools/xtensa-esp32-elf/esp-2022r1-11.2.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc -DMBEDTLS_CONFIG_FILE=\"mbedtls/esp_config.h\" -DUNITY_INCLUDE_CONFIG_H -I/home/michaelb/Projects/green_house_firmware-main/build/config -I/home/michaelb/Projects/green_house_firmware-main/main -I/home/michaelb/Projects/esp/esp-idf/components/newlib/platform_include -I/home/michaelb/Projects/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include -I/home/michaelb/Projects/esp/esp-idf/components/freertos/esp_additions/include/freertos -I/home/michaelb/Projects/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -I/home/michaelb/Projects/esp/esp-idf/components/freertos/esp_additions/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_hw_support/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_hw_support/include/soc -I/home/michaelb/Projects/esp/esp-idf/components/esp_hw_support/include/soc/esp32 -I/home/michaelb/Projects/esp/esp-idf/components/esp_hw_support/port/esp32/. -I/home/michaelb/Projects/esp/esp-idf/components/esp_hw_support/port/esp32/private_include -I/home/michaelb/Projects/esp/esp-idf/components/heap/include -I/home/michaelb/Projects/esp/esp-idf/components/log/include -I/home/michaelb/Projects/esp/esp-idf/components/soc/include -I/home/michaelb/Projects/esp/esp-idf/components/soc/esp32/. -I/home/michaelb/Projects/esp/esp-idf/components/soc/esp32/include -I/home/michaelb/Projects/esp/esp-idf/components/hal/esp32/include -I/home/michaelb/Projects/esp/esp-idf/components/hal/include -I/home/michaelb/Projects/esp/esp-idf/components/hal/platform_port/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_rom/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_rom/include/esp32 -I/home/michaelb/Projects/esp/esp-idf/components/esp_rom/esp32 -I/home/michaelb/Projects/esp/esp-idf/components/esp_common/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_system/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_system/port/soc -I/home/michaelb/Projects/esp/esp-idf/components/esp_system/port/include/private -I/home/michaelb/Projects/esp/esp-idf/components/xtensa/include -I/home/michaelb/Projects/esp/esp-idf/components/xtensa/esp32/include -I/home/michaelb/Projects/esp/esp-idf/components/lwip/include -I/home/michaelb/Projects/esp/esp-idf/components/lwip/include/apps -I/home/michaelb/Projects/esp/esp-idf/components/lwip/include/apps/sntp -I/home/michaelb/Projects/esp/esp-idf/components/lwip/lwip/src/include -I/home/michaelb/Projects/esp/esp-idf/components/lwip/port/esp32/include -I/home/michaelb/Projects/esp/esp-idf/components/lwip/port/esp32/include/arch -I/home/michaelb/Projects/esp/esp-idf/components/esp_ringbuf/include -I/home/michaelb/Projects/esp/esp-idf/components/efuse/include -I/home/michaelb/Projects/esp/esp-idf/components/efuse/esp32/include -I/home/michaelb/Projects/esp/esp-idf/components/driver/include -I/home/michaelb/Projects/esp/esp-idf/components/driver/deprecated -I/home/michaelb/Projects/esp/esp-idf/components/driver/esp32/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_pm/include -I/home/michaelb/Projects/esp/esp-idf/components/mbedtls/port/include -I/home/michaelb/Projects/esp/esp-idf/components/mbedtls/mbedtls/include -I/home/michaelb/Projects/esp/esp-idf/components/mbedtls/mbedtls/library -I/home/michaelb/Projects/esp/esp-idf/components/mbedtls/esp_crt_bundle/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_app_format/include -I/home/michaelb/Projects/esp/esp-idf/components/bootloader_support/include -I/home/michaelb/Projects/esp/esp-idf/components/bootloader_support/bootloader_flash/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_partition/include -I/home/michaelb/Projects/esp/esp-idf/components/app_update/include -I/home/michaelb/Projects/esp/esp-idf/components/spi_flash/include -I/home/michaelb/Projects/esp/esp-idf/components/pthread/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_timer/include -I/home/michaelb/Projects/esp/esp-idf/components/app_trace/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_event/include -I/home/michaelb/Projects/esp/esp-idf/components/nvs_flash/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_phy/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_phy/esp32/include -I/home/michaelb/Projects/esp/esp-idf/components/vfs/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_netif/include -I/home/michaelb/Projects/esp/esp-idf/components/wpa_supplicant/include -I/home/michaelb/Projects/esp/esp-idf/components/wpa_supplicant/port/include -I/home/michaelb/Projects/esp/esp-idf/components/wpa_supplicant/esp_supplicant/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_wifi/include -I/home/michaelb/Projects/esp/esp-idf/components/unity/include -I/home/michaelb/Projects/esp/esp-idf/components/unity/unity/src -I/home/michaelb/Projects/esp/esp-idf/components/cmock/CMock/src -I/home/michaelb/Projects/esp/esp-idf/components/console -I/home/michaelb/Projects/esp/esp-idf/components/http_parser -I/home/michaelb/Projects/esp/esp-idf/components/esp-tls -I/home/michaelb/Projects/esp/esp-idf/components/esp-tls/esp-tls-crypto -I/home/michaelb/Projects/esp/esp-idf/components/esp_adc/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_adc/interface -I/home/michaelb/Projects/esp/esp-idf/components/esp_adc/esp32/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_adc/deprecated/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_eth/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_gdbstub/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_gdbstub/xtensa -I/home/michaelb/Projects/esp/esp-idf/components/esp_gdbstub/esp32 -I/home/michaelb/Projects/esp/esp-idf/components/esp_hid/include -I/home/michaelb/Projects/esp/esp-idf/components/tcp_transport/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_http_client/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_http_server/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_https_ota/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_lcd/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_lcd/interface -I/home/michaelb/Projects/esp/esp-idf/components/protobuf-c/protobuf-c -I/home/michaelb/Projects/esp/esp-idf/components/protocomm/include/common -I/home/michaelb/Projects/esp/esp-idf/components/protocomm/include/security -I/home/michaelb/Projects/esp/esp-idf/components/protocomm/include/transports -I/home/michaelb/Projects/esp/esp-idf/components/esp_local_ctrl/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_psram/include -I/home/michaelb/Projects/esp/esp-idf/components/espcoredump/include -I/home/michaelb/Projects/esp/esp-idf/components/espcoredump/include/port/xtensa -I/home/michaelb/Projects/esp/esp-idf/components/wear_levelling/include -I/home/michaelb/Projects/esp/esp-idf/components/sdmmc/include -I/home/michaelb/Projects/esp/esp-idf/components/fatfs/diskio -I/home/michaelb/Projects/esp/esp-idf/components/fatfs/vfs -I/home/michaelb/Projects/esp/esp-idf/components/fatfs/src -I/home/michaelb/Projects/esp/esp-idf/components/idf_test/include -I/home/michaelb/Projects/esp/esp-idf/components/idf_test/include/esp32 -I/home/michaelb/Projects/esp/esp-idf/components/ieee802154/include -I/home/michaelb/Projects/esp/esp-idf/components/json/cJSON -I/home/michaelb/Projects/esp/esp-idf/components/mqtt/esp-mqtt/include -I/home/michaelb/Projects/esp/esp-idf/components/perfmon/include -I/home/michaelb/Projects/esp/esp-idf/components/spiffs/include -I/home/michaelb/Projects/esp/esp-idf/components/ulp/ulp_common/include -I/home/michaelb/Projects/esp/esp-idf/components/ulp/ulp_common/include/esp32 -I/home/michaelb/Projects/esp/esp-idf/components/wifi_provisioning/include -mlongcalls -Wno-frame-address  -fdiagnostics-color=always -ffunction-sections -fdata-sections -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-enum-conversion -gdwarf-4 -ggdb -Og -fmacro-prefix-map=/home/michaelb/Projects/green_house_firmware-main=. -fmacro-prefix-map=/home/michaelb/Projects/esp/esp-idf=/IDF -fstrict-volatile-bitfields -Wno-error=unused-but-set-variable -fno-jump-tables -fno-tree-switch-conversion -DconfigENABLE_FREERTOS_DEBUG_OCDAWARE=1 -std=gnu17 -Wno-old-style-declaration -D_GNU_SOURCE -DIDF_VER=\"v5.0\" -DESP_PLATFORM -D_POSIX_READER_WRITER_LOCKS -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/wifi_connect.c.obj -MF esp-idf/main/CMakeFiles/__idf_main.dir/wifi_connect.c.obj.d -o esp-idf/main/CMakeFiles/__idf_main.dir/wifi_connect.c.obj -c /home/michaelb/Projects/green_house_firmware-main/main/wifi_connect.c
+/home/michaelb/Projects/green_house_firmware-main/main/wifi_connect.c:38:8: error: unknown type name 'xSemaphoreHandle'
+   38 | static xSemaphoreHandle s_semph_get_ip_addrs;
+      |        ^~~~~~~~~~~~~~~~
+/home/michaelb/Projects/green_house_firmware-main/main/wifi_connect.c: In function 'start':
+/home/michaelb/Projects/green_house_firmware-main/main/wifi_connect.c:72:26: warning: assignment to 'int' from 'QueueHandle_t' {aka 'struct QueueDefinition *'} makes integer from pointer without a cast [-Wint-conversion]
+   72 |     s_semph_get_ip_addrs = xSemaphoreCreateCounting(NR_OF_IP_ADDRESSES_TO_WAIT_FOR, 0);
+      |                          ^
+/home/michaelb/Projects/green_house_firmware-main/main/wifi_connect.c: In function 'wifi_connect':
+/home/michaelb/Projects/green_house_firmware-main/main/wifi_connect.c:104:30: warning: comparison between pointer and integer
+  104 |     if (s_semph_get_ip_addrs != NULL)
+      |                              ^~
+In file included from /home/michaelb/Projects/esp/esp-idf/components/esp_event/include/esp_event.h:15,
+                 from /home/michaelb/Projects/green_house_firmware-main/main/wifi_connect.c:20:
+/home/michaelb/Projects/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/semphr.h:319:74: warning: passing argument 1 of 'xQueueSemaphoreTake' makes pointer from integer without a cast [-Wint-conversion]
+  319 | #define xSemaphoreTake( xSemaphore, xBlockTime )    xQueueSemaphoreTake( ( xSemaphore ), ( xBlockTime ) )
+      |                                                                          ^~~~~~~~~~~~~~
+      |                                                                          |
+      |                                                                          int
+/home/michaelb/Projects/green_house_firmware-main/main/wifi_connect.c:115:9: note: in expansion of macro 'xSemaphoreTake'
+  115 |         xSemaphoreTake(s_semph_get_ip_addrs, portMAX_DELAY);
+      |         ^~~~~~~~~~~~~~
+In file included from /home/michaelb/Projects/esp/esp-idf/components/esp_event/include/esp_event.h:14,
+                 from /home/michaelb/Projects/green_house_firmware-main/main/wifi_connect.c:20:
+/home/michaelb/Projects/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:1547:47: note: expected 'QueueHandle_t' {aka 'struct QueueDefinition *'} but argument is of type 'int'
+ 1547 | BaseType_t xQueueSemaphoreTake( QueueHandle_t xQueue,
+      |                                 ~~~~~~~~~~~~~~^~~~~~
+/home/michaelb/Projects/green_house_firmware-main/main/wifi_connect.c: In function 'wifi_disconnect':
+/home/michaelb/Projects/green_house_firmware-main/main/wifi_connect.c:137:30: warning: comparison between pointer and integer
+  137 |     if (s_semph_get_ip_addrs == NULL)
+      |                              ^~
+/home/michaelb/Projects/green_house_firmware-main/main/wifi_connect.c:143:26: warning: assignment to 'int' from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+  143 |     s_semph_get_ip_addrs = NULL;
+      |                          ^
+[3/13] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj
+FAILED: esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj 
+/home/michaelb/.espressif/tools/xtensa-esp32-elf/esp-2022r1-11.2.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc -DMBEDTLS_CONFIG_FILE=\"mbedtls/esp_config.h\" -DUNITY_INCLUDE_CONFIG_H -I/home/michaelb/Projects/green_house_firmware-main/build/config -I/home/michaelb/Projects/green_house_firmware-main/main -I/home/michaelb/Projects/esp/esp-idf/components/newlib/platform_include -I/home/michaelb/Projects/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include -I/home/michaelb/Projects/esp/esp-idf/components/freertos/esp_additions/include/freertos -I/home/michaelb/Projects/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -I/home/michaelb/Projects/esp/esp-idf/components/freertos/esp_additions/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_hw_support/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_hw_support/include/soc -I/home/michaelb/Projects/esp/esp-idf/components/esp_hw_support/include/soc/esp32 -I/home/michaelb/Projects/esp/esp-idf/components/esp_hw_support/port/esp32/. -I/home/michaelb/Projects/esp/esp-idf/components/esp_hw_support/port/esp32/private_include -I/home/michaelb/Projects/esp/esp-idf/components/heap/include -I/home/michaelb/Projects/esp/esp-idf/components/log/include -I/home/michaelb/Projects/esp/esp-idf/components/soc/include -I/home/michaelb/Projects/esp/esp-idf/components/soc/esp32/. -I/home/michaelb/Projects/esp/esp-idf/components/soc/esp32/include -I/home/michaelb/Projects/esp/esp-idf/components/hal/esp32/include -I/home/michaelb/Projects/esp/esp-idf/components/hal/include -I/home/michaelb/Projects/esp/esp-idf/components/hal/platform_port/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_rom/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_rom/include/esp32 -I/home/michaelb/Projects/esp/esp-idf/components/esp_rom/esp32 -I/home/michaelb/Projects/esp/esp-idf/components/esp_common/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_system/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_system/port/soc -I/home/michaelb/Projects/esp/esp-idf/components/esp_system/port/include/private -I/home/michaelb/Projects/esp/esp-idf/components/xtensa/include -I/home/michaelb/Projects/esp/esp-idf/components/xtensa/esp32/include -I/home/michaelb/Projects/esp/esp-idf/components/lwip/include -I/home/michaelb/Projects/esp/esp-idf/components/lwip/include/apps -I/home/michaelb/Projects/esp/esp-idf/components/lwip/include/apps/sntp -I/home/michaelb/Projects/esp/esp-idf/components/lwip/lwip/src/include -I/home/michaelb/Projects/esp/esp-idf/components/lwip/port/esp32/include -I/home/michaelb/Projects/esp/esp-idf/components/lwip/port/esp32/include/arch -I/home/michaelb/Projects/esp/esp-idf/components/esp_ringbuf/include -I/home/michaelb/Projects/esp/esp-idf/components/efuse/include -I/home/michaelb/Projects/esp/esp-idf/components/efuse/esp32/include -I/home/michaelb/Projects/esp/esp-idf/components/driver/include -I/home/michaelb/Projects/esp/esp-idf/components/driver/deprecated -I/home/michaelb/Projects/esp/esp-idf/components/driver/esp32/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_pm/include -I/home/michaelb/Projects/esp/esp-idf/components/mbedtls/port/include -I/home/michaelb/Projects/esp/esp-idf/components/mbedtls/mbedtls/include -I/home/michaelb/Projects/esp/esp-idf/components/mbedtls/mbedtls/library -I/home/michaelb/Projects/esp/esp-idf/components/mbedtls/esp_crt_bundle/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_app_format/include -I/home/michaelb/Projects/esp/esp-idf/components/bootloader_support/include -I/home/michaelb/Projects/esp/esp-idf/components/bootloader_support/bootloader_flash/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_partition/include -I/home/michaelb/Projects/esp/esp-idf/components/app_update/include -I/home/michaelb/Projects/esp/esp-idf/components/spi_flash/include -I/home/michaelb/Projects/esp/esp-idf/components/pthread/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_timer/include -I/home/michaelb/Projects/esp/esp-idf/components/app_trace/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_event/include -I/home/michaelb/Projects/esp/esp-idf/components/nvs_flash/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_phy/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_phy/esp32/include -I/home/michaelb/Projects/esp/esp-idf/components/vfs/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_netif/include -I/home/michaelb/Projects/esp/esp-idf/components/wpa_supplicant/include -I/home/michaelb/Projects/esp/esp-idf/components/wpa_supplicant/port/include -I/home/michaelb/Projects/esp/esp-idf/components/wpa_supplicant/esp_supplicant/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_wifi/include -I/home/michaelb/Projects/esp/esp-idf/components/unity/include -I/home/michaelb/Projects/esp/esp-idf/components/unity/unity/src -I/home/michaelb/Projects/esp/esp-idf/components/cmock/CMock/src -I/home/michaelb/Projects/esp/esp-idf/components/console -I/home/michaelb/Projects/esp/esp-idf/components/http_parser -I/home/michaelb/Projects/esp/esp-idf/components/esp-tls -I/home/michaelb/Projects/esp/esp-idf/components/esp-tls/esp-tls-crypto -I/home/michaelb/Projects/esp/esp-idf/components/esp_adc/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_adc/interface -I/home/michaelb/Projects/esp/esp-idf/components/esp_adc/esp32/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_adc/deprecated/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_eth/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_gdbstub/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_gdbstub/xtensa -I/home/michaelb/Projects/esp/esp-idf/components/esp_gdbstub/esp32 -I/home/michaelb/Projects/esp/esp-idf/components/esp_hid/include -I/home/michaelb/Projects/esp/esp-idf/components/tcp_transport/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_http_client/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_http_server/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_https_ota/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_lcd/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_lcd/interface -I/home/michaelb/Projects/esp/esp-idf/components/protobuf-c/protobuf-c -I/home/michaelb/Projects/esp/esp-idf/components/protocomm/include/common -I/home/michaelb/Projects/esp/esp-idf/components/protocomm/include/security -I/home/michaelb/Projects/esp/esp-idf/components/protocomm/include/transports -I/home/michaelb/Projects/esp/esp-idf/components/esp_local_ctrl/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_psram/include -I/home/michaelb/Projects/esp/esp-idf/components/espcoredump/include -I/home/michaelb/Projects/esp/esp-idf/components/espcoredump/include/port/xtensa -I/home/michaelb/Projects/esp/esp-idf/components/wear_levelling/include -I/home/michaelb/Projects/esp/esp-idf/components/sdmmc/include -I/home/michaelb/Projects/esp/esp-idf/components/fatfs/diskio -I/home/michaelb/Projects/esp/esp-idf/components/fatfs/vfs -I/home/michaelb/Projects/esp/esp-idf/components/fatfs/src -I/home/michaelb/Projects/esp/esp-idf/components/idf_test/include -I/home/michaelb/Projects/esp/esp-idf/components/idf_test/include/esp32 -I/home/michaelb/Projects/esp/esp-idf/components/ieee802154/include -I/home/michaelb/Projects/esp/esp-idf/components/json/cJSON -I/home/michaelb/Projects/esp/esp-idf/components/mqtt/esp-mqtt/include -I/home/michaelb/Projects/esp/esp-idf/components/perfmon/include -I/home/michaelb/Projects/esp/esp-idf/components/spiffs/include -I/home/michaelb/Projects/esp/esp-idf/components/ulp/ulp_common/include -I/home/michaelb/Projects/esp/esp-idf/components/ulp/ulp_common/include/esp32 -I/home/michaelb/Projects/esp/esp-idf/components/wifi_provisioning/include -mlongcalls -Wno-frame-address  -fdiagnostics-color=always -ffunction-sections -fdata-sections -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-enum-conversion -gdwarf-4 -ggdb -Og -fmacro-prefix-map=/home/michaelb/Projects/green_house_firmware-main=. -fmacro-prefix-map=/home/michaelb/Projects/esp/esp-idf=/IDF -fstrict-volatile-bitfields -Wno-error=unused-but-set-variable -fno-jump-tables -fno-tree-switch-conversion -DconfigENABLE_FREERTOS_DEBUG_OCDAWARE=1 -std=gnu17 -Wno-old-style-declaration -D_GNU_SOURCE -DIDF_VER=\"v5.0\" -DESP_PLATFORM -D_POSIX_READER_WRITER_LOCKS -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj -MF esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj.d -o esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj -c /home/michaelb/Projects/green_house_firmware-main/main/main.c
+In file included from /home/michaelb/Projects/green_house_firmware-main/main/main.c:23:
+/home/michaelb/Projects/green_house_firmware-main/main/main.c: In function 'app_loop':
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:265:27: error: format '%d' expects argument of type 'int', but argument 6 has type 'long unsigned int' [-Werror=format=]
+  265 | #define LOG_COLOR(COLOR)  "\033[0;" COLOR "m"
+      |                           ^~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:268:27: note: in expansion of macro 'LOG_COLOR'
+  268 | #define LOG_COLOR_E       LOG_COLOR(LOG_COLOR_RED)
+      |                           ^~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:282:37: note: in expansion of macro 'LOG_COLOR_E'
+  282 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                     ^~~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:410:86: note: in expansion of macro 'LOG_FORMAT'
+  410 |         if (level==ESP_LOG_ERROR )          { esp_log_write(ESP_LOG_ERROR,      tag, LOG_FORMAT(E, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                      ^~~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:432:41: note: in expansion of macro 'ESP_LOG_LEVEL'
+  432 |         if ( LOG_LOCAL_LEVEL >= level ) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                         ^~~~~~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:342:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  342 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/michaelb/Projects/green_house_firmware-main/main/main.c:97:5: note: in expansion of macro 'ESP_LOGI'
+   97 |     ESP_LOGI("main", "Starting app_loop %d", portTICK_PERIOD_MS);
+      |     ^~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:265:27: error: format '%d' expects argument of type 'int', but argument 6 has type 'long unsigned int' [-Werror=format=]
+  265 | #define LOG_COLOR(COLOR)  "\033[0;" COLOR "m"
+      |                           ^~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:269:27: note: in expansion of macro 'LOG_COLOR'
+  269 | #define LOG_COLOR_W       LOG_COLOR(LOG_COLOR_BROWN)
+      |                           ^~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:282:37: note: in expansion of macro 'LOG_COLOR_W'
+  282 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                     ^~~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:411:86: note: in expansion of macro 'LOG_FORMAT'
+  411 |         else if (level==ESP_LOG_WARN )      { esp_log_write(ESP_LOG_WARN,       tag, LOG_FORMAT(W, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                      ^~~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:432:41: note: in expansion of macro 'ESP_LOG_LEVEL'
+  432 |         if ( LOG_LOCAL_LEVEL >= level ) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                         ^~~~~~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:342:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  342 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/michaelb/Projects/green_house_firmware-main/main/main.c:97:5: note: in expansion of macro 'ESP_LOGI'
+   97 |     ESP_LOGI("main", "Starting app_loop %d", portTICK_PERIOD_MS);
+      |     ^~~~~~~~
+/home/michaelb/Projects/green_house_firmware-main/main/main.c:97:1: error: format '%d' expects argument of type 'int', but argument 6 has type 'long unsigned int' [-Werror=format=]
+   97 |     ESP_LOGI("main", "Starting app_loop %d", portTICK_PERIOD_MS);
+      | ^   ~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:282:59: note: in definition of macro 'LOG_FORMAT'
+  282 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                                           ^~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:432:41: note: in expansion of macro 'ESP_LOG_LEVEL'
+  432 |         if ( LOG_LOCAL_LEVEL >= level ) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                         ^~~~~~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:342:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  342 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/michaelb/Projects/green_house_firmware-main/main/main.c:97:5: note: in expansion of macro 'ESP_LOGI'
+   97 |     ESP_LOGI("main", "Starting app_loop %d", portTICK_PERIOD_MS);
+      |     ^~~~~~~~
+/home/michaelb/Projects/green_house_firmware-main/main/main.c:97:1: error: format '%d' expects argument of type 'int', but argument 6 has type 'long unsigned int' [-Werror=format=]
+   97 |     ESP_LOGI("main", "Starting app_loop %d", portTICK_PERIOD_MS);
+      | ^   ~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:282:59: note: in definition of macro 'LOG_FORMAT'
+  282 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                                           ^~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:432:41: note: in expansion of macro 'ESP_LOG_LEVEL'
+  432 |         if ( LOG_LOCAL_LEVEL >= level ) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                         ^~~~~~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:342:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  342 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/michaelb/Projects/green_house_firmware-main/main/main.c:97:5: note: in expansion of macro 'ESP_LOGI'
+   97 |     ESP_LOGI("main", "Starting app_loop %d", portTICK_PERIOD_MS);
+      |     ^~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:265:27: error: format '%d' expects argument of type 'int', but argument 6 has type 'long unsigned int' [-Werror=format=]
+  265 | #define LOG_COLOR(COLOR)  "\033[0;" COLOR "m"
+      |                           ^~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:270:27: note: in expansion of macro 'LOG_COLOR'
+  270 | #define LOG_COLOR_I       LOG_COLOR(LOG_COLOR_GREEN)
+      |                           ^~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:282:37: note: in expansion of macro 'LOG_COLOR_I'
+  282 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                     ^~~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:414:86: note: in expansion of macro 'LOG_FORMAT'
+  414 |         else                                { esp_log_write(ESP_LOG_INFO,       tag, LOG_FORMAT(I, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                      ^~~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:432:41: note: in expansion of macro 'ESP_LOG_LEVEL'
+  432 |         if ( LOG_LOCAL_LEVEL >= level ) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                         ^~~~~~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:342:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  342 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/michaelb/Projects/green_house_firmware-main/main/main.c:97:5: note: in expansion of macro 'ESP_LOGI'
+   97 |     ESP_LOGI("main", "Starting app_loop %d", portTICK_PERIOD_MS);
+      |     ^~~~~~~~
+cc1: some warnings being treated as errors
+[4/13] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/mqtt.c.obj
+FAILED: esp-idf/main/CMakeFiles/__idf_main.dir/mqtt.c.obj 
+/home/michaelb/.espressif/tools/xtensa-esp32-elf/esp-2022r1-11.2.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc -DMBEDTLS_CONFIG_FILE=\"mbedtls/esp_config.h\" -DUNITY_INCLUDE_CONFIG_H -I/home/michaelb/Projects/green_house_firmware-main/build/config -I/home/michaelb/Projects/green_house_firmware-main/main -I/home/michaelb/Projects/esp/esp-idf/components/newlib/platform_include -I/home/michaelb/Projects/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include -I/home/michaelb/Projects/esp/esp-idf/components/freertos/esp_additions/include/freertos -I/home/michaelb/Projects/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -I/home/michaelb/Projects/esp/esp-idf/components/freertos/esp_additions/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_hw_support/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_hw_support/include/soc -I/home/michaelb/Projects/esp/esp-idf/components/esp_hw_support/include/soc/esp32 -I/home/michaelb/Projects/esp/esp-idf/components/esp_hw_support/port/esp32/. -I/home/michaelb/Projects/esp/esp-idf/components/esp_hw_support/port/esp32/private_include -I/home/michaelb/Projects/esp/esp-idf/components/heap/include -I/home/michaelb/Projects/esp/esp-idf/components/log/include -I/home/michaelb/Projects/esp/esp-idf/components/soc/include -I/home/michaelb/Projects/esp/esp-idf/components/soc/esp32/. -I/home/michaelb/Projects/esp/esp-idf/components/soc/esp32/include -I/home/michaelb/Projects/esp/esp-idf/components/hal/esp32/include -I/home/michaelb/Projects/esp/esp-idf/components/hal/include -I/home/michaelb/Projects/esp/esp-idf/components/hal/platform_port/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_rom/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_rom/include/esp32 -I/home/michaelb/Projects/esp/esp-idf/components/esp_rom/esp32 -I/home/michaelb/Projects/esp/esp-idf/components/esp_common/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_system/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_system/port/soc -I/home/michaelb/Projects/esp/esp-idf/components/esp_system/port/include/private -I/home/michaelb/Projects/esp/esp-idf/components/xtensa/include -I/home/michaelb/Projects/esp/esp-idf/components/xtensa/esp32/include -I/home/michaelb/Projects/esp/esp-idf/components/lwip/include -I/home/michaelb/Projects/esp/esp-idf/components/lwip/include/apps -I/home/michaelb/Projects/esp/esp-idf/components/lwip/include/apps/sntp -I/home/michaelb/Projects/esp/esp-idf/components/lwip/lwip/src/include -I/home/michaelb/Projects/esp/esp-idf/components/lwip/port/esp32/include -I/home/michaelb/Projects/esp/esp-idf/components/lwip/port/esp32/include/arch -I/home/michaelb/Projects/esp/esp-idf/components/esp_ringbuf/include -I/home/michaelb/Projects/esp/esp-idf/components/efuse/include -I/home/michaelb/Projects/esp/esp-idf/components/efuse/esp32/include -I/home/michaelb/Projects/esp/esp-idf/components/driver/include -I/home/michaelb/Projects/esp/esp-idf/components/driver/deprecated -I/home/michaelb/Projects/esp/esp-idf/components/driver/esp32/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_pm/include -I/home/michaelb/Projects/esp/esp-idf/components/mbedtls/port/include -I/home/michaelb/Projects/esp/esp-idf/components/mbedtls/mbedtls/include -I/home/michaelb/Projects/esp/esp-idf/components/mbedtls/mbedtls/library -I/home/michaelb/Projects/esp/esp-idf/components/mbedtls/esp_crt_bundle/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_app_format/include -I/home/michaelb/Projects/esp/esp-idf/components/bootloader_support/include -I/home/michaelb/Projects/esp/esp-idf/components/bootloader_support/bootloader_flash/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_partition/include -I/home/michaelb/Projects/esp/esp-idf/components/app_update/include -I/home/michaelb/Projects/esp/esp-idf/components/spi_flash/include -I/home/michaelb/Projects/esp/esp-idf/components/pthread/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_timer/include -I/home/michaelb/Projects/esp/esp-idf/components/app_trace/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_event/include -I/home/michaelb/Projects/esp/esp-idf/components/nvs_flash/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_phy/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_phy/esp32/include -I/home/michaelb/Projects/esp/esp-idf/components/vfs/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_netif/include -I/home/michaelb/Projects/esp/esp-idf/components/wpa_supplicant/include -I/home/michaelb/Projects/esp/esp-idf/components/wpa_supplicant/port/include -I/home/michaelb/Projects/esp/esp-idf/components/wpa_supplicant/esp_supplicant/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_wifi/include -I/home/michaelb/Projects/esp/esp-idf/components/unity/include -I/home/michaelb/Projects/esp/esp-idf/components/unity/unity/src -I/home/michaelb/Projects/esp/esp-idf/components/cmock/CMock/src -I/home/michaelb/Projects/esp/esp-idf/components/console -I/home/michaelb/Projects/esp/esp-idf/components/http_parser -I/home/michaelb/Projects/esp/esp-idf/components/esp-tls -I/home/michaelb/Projects/esp/esp-idf/components/esp-tls/esp-tls-crypto -I/home/michaelb/Projects/esp/esp-idf/components/esp_adc/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_adc/interface -I/home/michaelb/Projects/esp/esp-idf/components/esp_adc/esp32/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_adc/deprecated/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_eth/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_gdbstub/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_gdbstub/xtensa -I/home/michaelb/Projects/esp/esp-idf/components/esp_gdbstub/esp32 -I/home/michaelb/Projects/esp/esp-idf/components/esp_hid/include -I/home/michaelb/Projects/esp/esp-idf/components/tcp_transport/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_http_client/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_http_server/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_https_ota/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_lcd/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_lcd/interface -I/home/michaelb/Projects/esp/esp-idf/components/protobuf-c/protobuf-c -I/home/michaelb/Projects/esp/esp-idf/components/protocomm/include/common -I/home/michaelb/Projects/esp/esp-idf/components/protocomm/include/security -I/home/michaelb/Projects/esp/esp-idf/components/protocomm/include/transports -I/home/michaelb/Projects/esp/esp-idf/components/esp_local_ctrl/include -I/home/michaelb/Projects/esp/esp-idf/components/esp_psram/include -I/home/michaelb/Projects/esp/esp-idf/components/espcoredump/include -I/home/michaelb/Projects/esp/esp-idf/components/espcoredump/include/port/xtensa -I/home/michaelb/Projects/esp/esp-idf/components/wear_levelling/include -I/home/michaelb/Projects/esp/esp-idf/components/sdmmc/include -I/home/michaelb/Projects/esp/esp-idf/components/fatfs/diskio -I/home/michaelb/Projects/esp/esp-idf/components/fatfs/vfs -I/home/michaelb/Projects/esp/esp-idf/components/fatfs/src -I/home/michaelb/Projects/esp/esp-idf/components/idf_test/include -I/home/michaelb/Projects/esp/esp-idf/components/idf_test/include/esp32 -I/home/michaelb/Projects/esp/esp-idf/components/ieee802154/include -I/home/michaelb/Projects/esp/esp-idf/components/json/cJSON -I/home/michaelb/Projects/esp/esp-idf/components/mqtt/esp-mqtt/include -I/home/michaelb/Projects/esp/esp-idf/components/perfmon/include -I/home/michaelb/Projects/esp/esp-idf/components/spiffs/include -I/home/michaelb/Projects/esp/esp-idf/components/ulp/ulp_common/include -I/home/michaelb/Projects/esp/esp-idf/components/ulp/ulp_common/include/esp32 -I/home/michaelb/Projects/esp/esp-idf/components/wifi_provisioning/include -mlongcalls -Wno-frame-address  -fdiagnostics-color=always -ffunction-sections -fdata-sections -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-enum-conversion -gdwarf-4 -ggdb -Og -fmacro-prefix-map=/home/michaelb/Projects/green_house_firmware-main=. -fmacro-prefix-map=/home/michaelb/Projects/esp/esp-idf=/IDF -fstrict-volatile-bitfields -Wno-error=unused-but-set-variable -fno-jump-tables -fno-tree-switch-conversion -DconfigENABLE_FREERTOS_DEBUG_OCDAWARE=1 -std=gnu17 -Wno-old-style-declaration -D_GNU_SOURCE -DIDF_VER=\"v5.0\" -DESP_PLATFORM -D_POSIX_READER_WRITER_LOCKS -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/mqtt.c.obj -MF esp-idf/main/CMakeFiles/__idf_main.dir/mqtt.c.obj.d -o esp-idf/main/CMakeFiles/__idf_main.dir/mqtt.c.obj -c /home/michaelb/Projects/green_house_firmware-main/main/mqtt.c
+/home/michaelb/Projects/green_house_firmware-main/main/mqtt.c: In function 'mqtt_start':
+/home/michaelb/Projects/green_house_firmware-main/main/mqtt.c:65:9: error: 'broker_t' undeclared (first use in this function)
+   65 |         broker_t.address.uri = CONFIG_BROKER_URL,
+      |         ^~~~~~~~
+/home/michaelb/Projects/green_house_firmware-main/main/mqtt.c:65:9: note: each undeclared identifier is reported only once for each function it appears in
+In file included from /home/michaelb/Projects/green_house_firmware-main/main/mqtt.c:21:
+/home/michaelb/Projects/green_house_firmware-main/main/mqtt.c: In function 'mqtt_event_handler':
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:265:27: error: format '%d' expects argument of type 'int', but argument 7 has type 'int32_t' {aka 'long int'} [-Werror=format=]
+  265 | #define LOG_COLOR(COLOR)  "\033[0;" COLOR "m"
+      |                           ^~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:268:27: note: in expansion of macro 'LOG_COLOR'
+  268 | #define LOG_COLOR_E       LOG_COLOR(LOG_COLOR_RED)
+      |                           ^~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:282:37: note: in expansion of macro 'LOG_COLOR_E'
+  282 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                     ^~~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:410:86: note: in expansion of macro 'LOG_FORMAT'
+  410 |         if (level==ESP_LOG_ERROR )          { esp_log_write(ESP_LOG_ERROR,      tag, LOG_FORMAT(E, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                      ^~~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:432:41: note: in expansion of macro 'ESP_LOG_LEVEL'
+  432 |         if ( LOG_LOCAL_LEVEL >= level ) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                         ^~~~~~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:343:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  343 | #define ESP_LOGD( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_DEBUG,   tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/michaelb/Projects/green_house_firmware-main/main/mqtt.c:97:5: note: in expansion of macro 'ESP_LOGD'
+   97 |     ESP_LOGD(TAG, "Event dispatched from event loop base=%s, event_id=%d",
+      |     ^~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:265:27: error: format '%d' expects argument of type 'int', but argument 7 has type 'int32_t' {aka 'long int'} [-Werror=format=]
+  265 | #define LOG_COLOR(COLOR)  "\033[0;" COLOR "m"
+      |                           ^~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:269:27: note: in expansion of macro 'LOG_COLOR'
+  269 | #define LOG_COLOR_W       LOG_COLOR(LOG_COLOR_BROWN)
+      |                           ^~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:282:37: note: in expansion of macro 'LOG_COLOR_W'
+  282 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                     ^~~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:411:86: note: in expansion of macro 'LOG_FORMAT'
+  411 |         else if (level==ESP_LOG_WARN )      { esp_log_write(ESP_LOG_WARN,       tag, LOG_FORMAT(W, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                      ^~~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:432:41: note: in expansion of macro 'ESP_LOG_LEVEL'
+  432 |         if ( LOG_LOCAL_LEVEL >= level ) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                         ^~~~~~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:343:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  343 | #define ESP_LOGD( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_DEBUG,   tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/michaelb/Projects/green_house_firmware-main/main/mqtt.c:97:5: note: in expansion of macro 'ESP_LOGD'
+   97 |     ESP_LOGD(TAG, "Event dispatched from event loop base=%s, event_id=%d",
+      |     ^~~~~~~~
+/home/michaelb/Projects/green_house_firmware-main/main/mqtt.c:98:1: error: format '%d' expects argument of type 'int', but argument 7 has type 'int32_t' {aka 'long int'} [-Werror=format=]
+   98 |              base, event_id);
+      | ^          
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:282:59: note: in definition of macro 'LOG_FORMAT'
+  282 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                                           ^~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:432:41: note: in expansion of macro 'ESP_LOG_LEVEL'
+  432 |         if ( LOG_LOCAL_LEVEL >= level ) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                         ^~~~~~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:343:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  343 | #define ESP_LOGD( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_DEBUG,   tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/michaelb/Projects/green_house_firmware-main/main/mqtt.c:97:5: note: in expansion of macro 'ESP_LOGD'
+   97 |     ESP_LOGD(TAG, "Event dispatched from event loop base=%s, event_id=%d",
+      |     ^~~~~~~~
+/home/michaelb/Projects/green_house_firmware-main/main/mqtt.c:98:1: error: format '%d' expects argument of type 'int', but argument 7 has type 'int32_t' {aka 'long int'} [-Werror=format=]
+   98 |              base, event_id);
+      | ^          
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:282:59: note: in definition of macro 'LOG_FORMAT'
+  282 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                                           ^~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:432:41: note: in expansion of macro 'ESP_LOG_LEVEL'
+  432 |         if ( LOG_LOCAL_LEVEL >= level ) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                         ^~~~~~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:343:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  343 | #define ESP_LOGD( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_DEBUG,   tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/michaelb/Projects/green_house_firmware-main/main/mqtt.c:97:5: note: in expansion of macro 'ESP_LOGD'
+   97 |     ESP_LOGD(TAG, "Event dispatched from event loop base=%s, event_id=%d",
+      |     ^~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:265:27: error: format '%d' expects argument of type 'int', but argument 7 has type 'int32_t' {aka 'long int'} [-Werror=format=]
+  265 | #define LOG_COLOR(COLOR)  "\033[0;" COLOR "m"
+      |                           ^~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:270:27: note: in expansion of macro 'LOG_COLOR'
+  270 | #define LOG_COLOR_I       LOG_COLOR(LOG_COLOR_GREEN)
+      |                           ^~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:282:37: note: in expansion of macro 'LOG_COLOR_I'
+  282 | #define LOG_FORMAT(letter, format)  LOG_COLOR_ ## letter #letter " (%" PRIu32 ") %s: " format LOG_RESET_COLOR "\n"
+      |                                     ^~~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:414:86: note: in expansion of macro 'LOG_FORMAT'
+  414 |         else                                { esp_log_write(ESP_LOG_INFO,       tag, LOG_FORMAT(I, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                      ^~~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:432:41: note: in expansion of macro 'ESP_LOG_LEVEL'
+  432 |         if ( LOG_LOCAL_LEVEL >= level ) ESP_LOG_LEVEL(level, tag, format, ##__VA_ARGS__); \
+      |                                         ^~~~~~~~~~~~~
+/home/michaelb/Projects/esp/esp-idf/components/log/include/esp_log.h:343:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  343 | #define ESP_LOGD( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_DEBUG,   tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/michaelb/Projects/green_house_firmware-main/main/mqtt.c:97:5: note: in expansion of macro 'ESP_LOGD'
+   97 |     ESP_LOGD(TAG, "Event dispatched from event loop base=%s, event_id=%d",
+      |     ^~~~~~~~
+/home/michaelb/Projects/green_house_firmware-main/main/mqtt.c: In function 'Convert_Time_To_Duration':
+/home/michaelb/Projects/green_house_firmware-main/main/mqtt.c:644:14: warning: unused variable 'x' [-Wunused-variable]
+  644 |     uint32_t x;
+      |              ^
+cc1: some warnings being treated as errors
+[5/13] Performing build step for 'bootloader'
+[0/1] Re-running CMake...
+-- Building ESP-IDF components for target esp32
+-- Project sdkconfig file /home/michaelb/Projects/green_house_firmware-main/sdkconfig
+-- Adding linker script /home/michaelb/Projects/esp/esp-idf/components/soc/esp32/ld/esp32.peripherals.ld
+-- App "bootloader" version: v5.0
+-- Adding linker script /home/michaelb/Projects/esp/esp-idf/components/esp_rom/esp32/ld/esp32.rom.ld
+-- Adding linker script /home/michaelb/Projects/esp/esp-idf/components/esp_rom/esp32/ld/esp32.rom.api.ld
+-- Adding linker script /home/michaelb/Projects/esp/esp-idf/components/esp_rom/esp32/ld/esp32.rom.libgcc.ld
+-- Adding linker script /home/michaelb/Projects/esp/esp-idf/components/esp_rom/esp32/ld/esp32.rom.newlib-funcs.ld
+-- Adding linker script /home/michaelb/Projects/esp/esp-idf/components/bootloader/subproject/main/ld/esp32/bootloader.ld
+-- Adding linker script /home/michaelb/Projects/esp/esp-idf/components/bootloader/subproject/main/ld/esp32/bootloader.rom.ld
+-- Components: bootloader bootloader_support efuse esp_app_format esp_common esp_hw_support esp_rom esp_system esptool_py freertos hal log main micro-ecc newlib partition_table soc spi_flash xtensa
+-- Component paths: /home/michaelb/Projects/esp/esp-idf/components/bootloader /home/michaelb/Projects/esp/esp-idf/components/bootloader_support /home/michaelb/Projects/esp/esp-idf/components/efuse /home/michaelb/Projects/esp/esp-idf/components/esp_app_format /home/michaelb/Projects/esp/esp-idf/components/esp_common /home/michaelb/Projects/esp/esp-idf/components/esp_hw_support /home/michaelb/Projects/esp/esp-idf/components/esp_rom /home/michaelb/Projects/esp/esp-idf/components/esp_system /home/michaelb/Projects/esp/esp-idf/components/esptool_py /home/michaelb/Projects/esp/esp-idf/components/freertos /home/michaelb/Projects/esp/esp-idf/components/hal /home/michaelb/Projects/esp/esp-idf/components/log /home/michaelb/Projects/esp/esp-idf/components/bootloader/subproject/main /home/michaelb/Projects/esp/esp-idf/components/bootloader/subproject/components/micro-ecc /home/michaelb/Projects/esp/esp-idf/components/newlib /home/michaelb/Projects/esp/esp-idf/components/partition_table /home/michaelb/Projects/esp/esp-idf/components/soc /home/michaelb/Projects/esp/esp-idf/components/spi_flash /home/michaelb/Projects/esp/esp-idf/components/xtensa
+-- Configuring done (1.8s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/michaelb/Projects/green_house_firmware-main/build/bootloader
+[1/1] cd /home/michaelb/Projects/green_house_firmware-main/build/bootloader/esp-idf/esptool_py && /home/michaelb/.espressif/python_env/idf5.0_py3.12_env/bin/python /home/michaelb/Projects/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/michaelb/Projects/green_house_firmware-main/build/bootloader/bootloader.bin
+Bootloader binary size 0x6700 bytes. 0x900 bytes (8%) free.
+ninja: build stopped: subcommand failed.

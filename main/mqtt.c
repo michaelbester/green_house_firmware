@@ -480,21 +480,21 @@ static esp_err_t mqtt_event_handler_cb(esp_mqtt_event_handle_t event)
             {
                 ESP_LOGI(TAG, "Drip #1 Duration Set Command.");
                 event->data[event->data_len] = 0x00; 
-                Control_Drip_Duration_Time(0, event->data);
+                Control_Drip_Duration_Time(1, event->data);
             }
 
             if(strstr(event->topic, GREEN_HOUSE_DRIP2_SET_DURATION_TOPIC) != NULL)
             {
                 ESP_LOGI(TAG, "Drip #2 Duration Set Command.");
                 event->data[event->data_len] = 0x00; 
-                Control_Drip_Duration_Time(1, event->data);
+                Control_Drip_Duration_Time(2, event->data);
             }
 
             if(strstr(event->topic, GREEN_HOUSE_DRIP3_SET_DURATION_TOPIC) != NULL)
             {
                 ESP_LOGI(TAG, "Drip #3 Duration Set Command.");
                 event->data[event->data_len] = 0x00; 
-                Control_Drip_Duration_Time(2, event->data);
+                Control_Drip_Duration_Time(3, event->data);
             }
 
             if(strstr(event->topic, GREEN_HOUSE_DRIP1_REQUEST_DAYS_TOPIC) != NULL)
@@ -528,21 +528,21 @@ static esp_err_t mqtt_event_handler_cb(esp_mqtt_event_handle_t event)
             {
                 ESP_LOGI(TAG, "Drip #1 Days Set Command.");
                 event->data[event->data_len] = 0x00; 
-                Control_Drip_Days(0, event->data);
+                Control_Drip_Days(1, event->data);
             }
             
             if(strstr(event->topic, GREEN_HOUSE_DRIP2_SET_DAYS_TOPIC) != NULL)
             {
                 ESP_LOGI(TAG, "Drip #2 Days Set Command.");
                 event->data[event->data_len] = 0x00; 
-                Control_Drip_Days(1, event->data);
+                Control_Drip_Days(2, event->data);
             }
 
             if(strstr(event->topic, GREEN_HOUSE_DRIP3_SET_DAYS_TOPIC) != NULL)
             {
                 ESP_LOGI(TAG, "Drip #3 Days Set Command.");
                 event->data[event->data_len] = 0x00; 
-                Control_Drip_Days(2, event->data);
+                Control_Drip_Days(3, event->data);
             }
         break;
 

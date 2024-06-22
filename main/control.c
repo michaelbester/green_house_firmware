@@ -310,11 +310,11 @@ void Control_Drip_Duration_Time(uint8_t id, char *duration)
 
     duration_raw_val = atoi(duration);               /* Convert to raw value. */
 
-    greenHouseInfo.dripInfo[id].duration = duration_raw_val;
+    greenHouseInfo.dripInfo[id-1].duration = duration_raw_val;
 
     sprintf(key, "DRIP_%d_DUR", id);
 
-    NVS_Write(key, greenHouseInfo.dripInfo[id].duration);
+    NVS_Write(key, greenHouseInfo.dripInfo[id-1].duration);
 }
 
 /******************************************************************************/
@@ -339,9 +339,9 @@ void Control_Drip_Days(uint8_t id, char *days)
 
     days_raw_val = atoi(days);               /* Convert to raw value. */
 
-    greenHouseInfo.dripInfo[id+1].days = days_raw_val;
+    greenHouseInfo.dripInfo[id-1].days = days_raw_val;
 
-    sprintf(key, "DRIP_%d_DAYS", id+1);
+    sprintf(key, "DRIP_%d_DAYS", id);
 
-    NVS_Write(key, greenHouseInfo.dripInfo[id].days);
+    NVS_Write(key, greenHouseInfo.dripInfo[id-1].days);
 }
